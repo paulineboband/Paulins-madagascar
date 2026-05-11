@@ -312,8 +312,11 @@
       max-width: 960px;
       margin: 0 auto;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: 1fr 1fr;
       gap: 2rem;
+    }
+    @media (max-width: 650px) {
+      .participer-grid { grid-template-columns: 1fr; }
     }
     .participer-card {
       background: #fff;
@@ -328,6 +331,13 @@
       border: 2px solid var(--gold);
     }
     .participer-icon { font-size: 2.2rem; }
+    .participer-icon-img {
+      width: 90px;
+      height: 90px;
+      object-fit: contain;
+      display: block;
+      mix-blend-mode: multiply;
+    }
     .participer-title {
       font-family: 'Playfair Display', serif;
       font-size: 1.4rem;
@@ -384,98 +394,96 @@
     footer strong { color: var(--vanilla); }
     footer a { color: #f5e6c8; }
 
-    /* ───── CARROUSEL ───── */
-    .carousel { max-width: 900px; margin: 0 auto; }
-
-    .carousel-track-wrapper {
-      position: relative;
-      border-radius: 20px;
-      overflow: hidden;
-      box-shadow: 0 8px 35px rgba(107,63,26,0.18);
-    }
-    .carousel-track {
-      display: flex;
-      transition: transform 0.5s cubic-bezier(0.4,0,0.2,1);
-    }
-    .carousel-slide {
-      min-width: 100%;
-      height: 480px;
-    }
-    .carousel-slide img {
-      width: 100%; height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-    @media (max-width: 700px) { .carousel-slide { height: 260px; } }
-
-    .carousel-btn {
-      position: absolute; top: 50%; transform: translateY(-50%);
-      background: rgba(255,253,248,0.85);
-      border: none; border-radius: 50%;
-      width: 48px; height: 48px;
-      font-size: 1.2rem;
-      color: var(--brown);
-      cursor: pointer;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.15);
-      transition: background 0.2s, transform 0.2s;
-      display: flex; align-items: center; justify-content: center;
-    }
-    .carousel-btn:hover { background: #fff; transform: translateY(-50%) scale(1.08); }
-    .carousel-prev { left: 1rem; }
-    .carousel-next { right: 1rem; }
-
-    .carousel-dots {
-      display: flex; justify-content: center; gap: 0.6rem;
-      margin: 1.2rem 0 0;
-    }
-    .carousel-dot {
-      width: 10px; height: 10px;
-      border-radius: 50%;
-      border: none;
-      background: #d4b896;
-      cursor: pointer;
-      transition: background 0.2s, transform 0.2s;
-      padding: 0;
-    }
-    .carousel-dot.active { background: var(--gold); transform: scale(1.3); }
-
-    .carousel-content {
-      position: relative;
-      margin-top: 2rem;
-      min-height: 160px;
-    }
-    .carousel-pane {
-      display: none;
-      text-align: center;
-      animation: fadeIn 0.4s ease;
-    }
-    .carousel-pane.active { display: block; }
+    /* ───── ONGLETS ACTIONS ───── */
     @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
 
-    .carousel-pane-icon { font-size: 2.2rem; margin-bottom: 0.6rem; }
-    .carousel-pane-title {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.5rem;
-      color: var(--brown);
-      margin-bottom: 1rem;
+    .tabs-bar {
+      display: flex;
+      border-radius: 14px;
+      background: #f0e6d3;
+      overflow: hidden;
+      max-width: 900px;
+      margin: 2.5rem auto 0;
     }
-    .carousel-pane-sub {
-      font-size: 0.95rem;
-      color: #7a5535;
-      font-style: italic;
-      line-height: 1.6;
-      max-width: 680px;
-      margin: 0 auto 1rem;
-    }
-    .carousel-pane-list {
-      list-style: none;
-      font-size: 1rem;
-      line-height: 1.8;
+    .tab-btn {
+      flex: 1;
+      padding: 1.1rem 0.8rem;
+      background: transparent;
+      border: none;
+      border-right: 1px solid #ddd0bb;
+      cursor: pointer;
+      font-family: 'Lato', sans-serif;
+      font-weight: 700;
+      font-size: 0.88rem;
       color: #5a3e28;
-      display: inline-block;
-      text-align: left;
+      text-align: center;
+      line-height: 1.35;
+      transition: background 0.2s, color 0.2s;
     }
-    .carousel-pane-list li::before { content: "→ "; color: var(--gold); font-weight: 700; }
+    .tab-btn:last-child { border-right: none; }
+    .tab-btn:hover { background: rgba(201,146,42,0.15); }
+    .tab-btn.active { background: var(--gold); color: #fff; border-right-color: transparent; }
+
+    .tab-panel {
+      display: none;
+      max-width: 900px;
+      margin: 0 auto;
+      padding-top: 2.5rem;
+      animation: fadeIn 0.35s ease;
+    }
+    .tab-panel.active { display: block; }
+
+    .tab-panel-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--brown);
+      margin-bottom: 0.6rem;
+    }
+    .tab-panel-sub {
+      font-size: 1rem;
+      color: #5a3e28;
+      line-height: 1.7;
+      margin-bottom: 1.2rem;
+      max-width: 700px;
+    }
+    .tab-panel-examples {
+      font-size: 0.97rem;
+      color: #5a3e28;
+      font-style: italic;
+      line-height: 1.8;
+      margin-bottom: 2rem;
+      max-width: 700px;
+    }
+
+    .tab-photos {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    .tab-photo {
+      border-radius: 12px;
+      overflow: hidden;
+      height: 200px;
+      background: #e8d9bb;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .tab-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .tab-photo-placeholder {
+      color: #b09070;
+      font-size: 0.85rem;
+      text-align: center;
+      padding: 1rem;
+      font-style: italic;
+    }
+
+    @media (max-width: 600px) {
+      .tabs-bar { flex-wrap: wrap; }
+      .tab-btn { flex: 1 1 50%; border-right: none; border-bottom: 1px solid #ddd0bb; }
+      .tab-photos { grid-template-columns: 1fr; }
+    }
 
     /* ───── WhatsApp SVG icon ───── */
     .wa-icon { width: 20px; height: 20px; fill: #fff; flex-shrink: 0; }
@@ -518,7 +526,7 @@
 <section id="orphelinat">
   <div class="orphelinat-inner">
     <div class="orphelinat-text">
-      <h2 class="section-title">L'orphelinat des Paulins de Bel-Air</h2>
+      <h2 class="section-title">Les Trinitaires et l'orphelinat des Paulins de Bel-Air</h2>
       <p class="section-sub">
         L'ordre des Sœurs Trinitaires de Valence a été fondé en <strong>1685</strong>.
         Il est présent à Madagascar depuis près de <strong>100 ans</strong>.
@@ -553,6 +561,40 @@
       />
     </div>
   </div>
+
+  <!-- Chiffres clés -->
+  <div style="max-width:900px;margin:3rem auto 0;padding:0 1rem;">
+    <p style="text-align:center;font-family:'Playfair Display',serif;font-size:1.1rem;color:#6b3f1a;margin-bottom:1.5rem;font-weight:600;">Quelques chiffres sur le rôle éducatif des religieuses trinitaires à Madagascar</p>
+    <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:0.8rem;">
+
+      <div style="background:#fff;border-radius:12px;padding:1.2rem 0.6rem;text-align:center;box-shadow:0 4px 20px rgba(107,63,26,0.08);">
+        <div style="font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700;color:var(--gold);">1962</div>
+        <div style="font-size:0.78rem;color:#5a3e28;margin-top:0.4rem;line-height:1.4;">implantation des Sœurs à Madagascar</div>
+      </div>
+
+      <div style="background:#fff;border-radius:12px;padding:1.2rem 0.6rem;text-align:center;box-shadow:0 4px 20px rgba(107,63,26,0.08);">
+        <div style="font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700;color:var(--gold);">9</div>
+        <div style="font-size:0.78rem;color:#5a3e28;margin-top:0.4rem;line-height:1.4;">établissements scolaires sur toute l'île</div>
+      </div>
+
+      <div style="background:#fff;border-radius:12px;padding:1.2rem 0.6rem;text-align:center;box-shadow:0 4px 20px rgba(107,63,26,0.08);">
+        <div style="font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700;color:var(--gold);">X</div>
+        <div style="font-size:0.78rem;color:#5a3e28;margin-top:0.4rem;line-height:1.4;">élèves scolarisés dans les établissements chaque année</div>
+      </div>
+
+      <div style="background:#fff;border-radius:12px;padding:1.2rem 0.6rem;text-align:center;box-shadow:0 4px 20px rgba(107,63,26,0.08);">
+        <div style="font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700;color:var(--gold);">X</div>
+        <div style="font-size:0.78rem;color:#5a3e28;margin-top:0.4rem;line-height:1.4;">religieuses investies dans le réseau éducatif (directrice, professeure, surveillante, fonction support)</div>
+      </div>
+
+      <div style="background:#fff;border-radius:12px;padding:1.2rem 0.6rem;text-align:center;box-shadow:0 4px 20px rgba(107,63,26,0.08);">
+        <div style="font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700;color:var(--gold);">X</div>
+        <div style="font-size:0.78rem;color:#5a3e28;margin-top:0.4rem;line-height:1.4;">heures de cours dispensées chaque année</div>
+      </div>
+
+    </div>
+  </div>
+
 </section>
 
 <!-- ── QUI SOMMES-NOUS ── -->
@@ -593,79 +635,56 @@
       Grâce aux dons et à nos missions sur place, nous avons déjà pu agir concrètement.
     </p>
 
-    <!-- Carrousel -->
-    <div class="carousel" style="margin-top:2.5rem;">
+    <!-- Onglets style pompiers -->
+    <div class="tabs-bar" role="tablist">
+      <button class="tab-btn active" onclick="showTab(0)" role="tab">Indépendance<br/>énergétique</button>
+      <button class="tab-btn" onclick="showTab(1)" role="tab">Confort<br/>essentiel</button>
+      <button class="tab-btn" onclick="showTab(2)" role="tab">Autonomie<br/>alimentaire</button>
+      <button class="tab-btn" onclick="showTab(3)" role="tab">Connectivité<br/>numérique</button>
+    </div>
 
-      <!-- Texte -->
-      <div class="carousel-content" id="carouselContent">
-
-        <div class="carousel-pane active">
-          <h3 class="carousel-pane-title">Indépendance énergétique</h3>
-          <p class="carousel-pane-sub">Installation d'infrastructures solaires complètes pour s'affranchir totalement du délestage — les coupures de courant quotidiennes imposées qui perturbaient cours et vie communautaire.</p>
-          <ul class="carousel-pane-list">
-            <li>3 sites équipés (écoles et communautés) : 8 panneaux solaires, batterie lithium et onduleur par site</li>
-            <li>Chaque installation est dimensionnée pour une autonomie totale du réseau — zéro dépendance au réseau national</li>
-          </ul>
-        </div>
-
-        <div class="carousel-pane">
-          <h3 class="carousel-pane-title">Confort essentiel</h3>
-          <p class="carousel-pane-sub">L'amélioration des conditions de vie quotidiennes pour que chaque enfant grandisse dans un environnement digne et stimulant.</p>
-          <ul class="carousel-pane-list">
-            <li>115 matelas et 115 uniformes scolaires — un équipement complet pour chaque enfant de l'orphelinat des Paulins</li>
-            <li>Réfection du jardin d'enfants (peinture murale éducative, toboggan, balançoire), rénovation des bâtiments et fourniture de 20+ ballons et 30+ jeux</li>
-          </ul>
-        </div>
-
-        <div class="carousel-pane">
-          <h3 class="carousel-pane-title">Autonomie alimentaire</h3>
-          <p class="carousel-pane-sub">Le développement d'une production locale pour réduire la dépendance aux achats extérieurs et garantir une alimentation saine et régulière aux 115 enfants.</p>
-          <ul class="carousel-pane-list">
-            <li>50 arbres fruitiers plantés, cultures de riz et de manioc — les premières récoltes couvrent une partie des besoins alimentaires de l'orphelinat</li>
-            <li>Élevage de 250 poules pondeuses — une source de protéines durable produite sur place</li>
-          </ul>
-        </div>
-
-        <div class="carousel-pane">
-          <h3 class="carousel-pane-title">Connectivité numérique</h3>
-          <p class="carousel-pane-sub">La modernisation de la salle informatique de l'école de Tananarive pour préparer les enfants aux outils du monde d'aujourd'hui — et de demain.</p>
-          <ul class="carousel-pane-list">
-            <li>12 ordinateurs installés : le ratio est passé d'1 ordinateur pour 6 élèves à 1 pour 3 — un accès réel aux outils numériques</li>
-            <li>Modernisation complète du parc informatique de l'école des Sœurs — les enfants entrent dans l'ère du numérique et de l'IA</li>
-          </ul>
-        </div>
-
+    <!-- Panneau 1 — Énergie -->
+    <div class="tab-panel active" id="tab-0">
+      <h3 class="tab-panel-title">Indépendance énergétique</h3>
+      <p class="tab-panel-sub">Installation d'infrastructures solaires complètes pour s'affranchir totalement du délestage — les coupures de courant quotidiennes qui perturbaient cours et vie communautaire.</p>
+      <p class="tab-panel-examples">Installation de panneaux solaires et batteries sur 3 sites</p>
+      <div class="tab-photos">
+        <div class="tab-photo"><img src="solaires2.JPG" alt="Panneaux solaires" /></div>
+        <div class="tab-photo"><img src="solaire.jpeg" alt="Installation solaire" /></div>
       </div>
+    </div>
 
-      <!-- Images -->
-      <div class="carousel-track-wrapper">
-        <div class="carousel-track" id="carouselTrack">
-          <div class="carousel-slide">
-            <img src="solaires2.JPG" alt="Indépendance énergétique" />
-          </div>
-          <div class="carousel-slide">
-            <img src="enfant-souriant.jpeg" alt="Confort et dignité" />
-          </div>
-          <div class="carousel-slide">
-            <img src="les-polins.jpeg" alt="Autonomie alimentaire" />
-          </div>
-          <div class="carousel-slide">
-            <img src="ordi2.jpg" alt="Soutien informatique" />
-          </div>
-        </div>
-
-        <button class="carousel-btn carousel-prev" onclick="carouselMove(-1)" aria-label="Précédent">&#8592;</button>
-        <button class="carousel-btn carousel-next" onclick="carouselMove(1)" aria-label="Suivant">&#8594;</button>
+    <!-- Panneau 2 — Confort -->
+    <div class="tab-panel" id="tab-1">
+      <h3 class="tab-panel-title">Confort essentiel</h3>
+      <p class="tab-panel-sub">L'amélioration des conditions de vie quotidiennes pour que chaque enfant grandisse dans un environnement digne et stimulant.</p>
+      <p class="tab-panel-examples">Distribution de matelas et d'uniformes scolaires, réfection du jardin d'enfants (peintures murales, jeux), rénovation des bâtiments, création d'une galerie photos</p>
+      <div class="tab-photos">
+        <div class="tab-photo"><img src="orphelinat.JPG" alt="Orphelinat" /></div>
+        <div class="tab-photo tab-photo-placeholder"><span>📷 Photo à venir</span></div>
       </div>
+    </div>
 
-      <!-- Dots -->
-      <div class="carousel-dots" id="carouselDots">
-        <button class="carousel-dot active" onclick="carouselGo(0)"></button>
-        <button class="carousel-dot" onclick="carouselGo(1)"></button>
-        <button class="carousel-dot" onclick="carouselGo(2)"></button>
-        <button class="carousel-dot" onclick="carouselGo(3)"></button>
+    <!-- Panneau 3 — Alimentation -->
+    <div class="tab-panel" id="tab-2">
+      <h3 class="tab-panel-title">Autonomie alimentaire</h3>
+      <p class="tab-panel-sub">Le développement d'une production locale pour réduire la dépendance aux achats extérieurs et garantir une alimentation saine et régulière aux enfants.</p>
+      <p class="tab-panel-examples">Plantation d'arbres fruitiers et cultures vivrières (riz, manioc), réhabilitation de l'élevage de poules pondeuses</p>
+      <div class="tab-photos">
+        <div class="tab-photo"><img src="poules.JPG" alt="Élevage de poules" /></div>
+        <div class="tab-photo tab-photo-placeholder"><span>📷 Photo à venir</span></div>
       </div>
+    </div>
 
+    <!-- Panneau 4 — Numérique -->
+    <div class="tab-panel" id="tab-3">
+      <h3 class="tab-panel-title">Connectivité numérique</h3>
+      <p class="tab-panel-sub">La modernisation de la salle informatique de l'école de Tananarive pour préparer les enfants aux outils du monde d'aujourd'hui — et de demain.</p>
+      <p class="tab-panel-examples">Renouvellement de l'équipement des salles informatiques dans les écoles, initiation aux outils LLM et IA</p>
+      <div class="tab-photos">
+        <div class="tab-photo"><img src="ordi2.jpg" alt="Salle informatique" /></div>
+        <div class="tab-photo"><img src="ordi.JPEG" alt="Ordinateurs" /></div>
+      </div>
     </div>
 
     <p style="margin-top:2.5rem;font-size:0.95rem;color:#5a3e28;font-style:italic;text-align:center;">
@@ -723,89 +742,40 @@
 
   <div class="participer-grid">
 
-    <!-- Don -->
-    <div class="participer-card featured">
+    <!-- Faire un don -->
+    <div class="participer-card featured" style="grid-column: 1 / -1; align-items: center; text-align: center;">
       <div class="participer-icon">💛</div>
       <div class="participer-title">Faire un don</div>
       <div class="participer-desc">
-        Les Sœurs Trinitaires de Valence sont une congrégation religieuse basée en France —
-        leurs œuvres sont éligibles aux dons défiscalisables.<br/><br/>
-        <strong>100 € par mois</strong> permettent de contribuer à :
-        <ul style="margin-top:0.6rem;margin-left:1rem;line-height:1.8;">
-          <li>la scolarité</li>
-          <li>les repas</li>
-          <li>les vêtements</li>
-          <li>l'accompagnement éducatif</li>
-        </ul>
+        <strong>100 € par mois</strong> contribuent à la scolarité · les repas · les vêtements · l'accompagnement éducatif
       </div>
       <div class="participer-note">
-        Don défiscalisé à <strong>66 %</strong> (réduction de l'impôt sur le revenu).<br/>
-        Vous recevrez automatiquement un reçu fiscal.<br/>
-        Bien indiquer que le don est destiné aux <strong>Paulins de Madagascar</strong>.<br/><br/>
+        Don défiscalisé à <strong>66 %</strong> · reçu fiscal automatique · indiquer que le don est destiné aux <strong>Paulins de Madagascar</strong><br/><br/>
         <strong>100 € donnés = 34 € réellement dépensés.</strong>
       </div>
-      <a
-        href="VOTRE_LIEN_DON"
-        class="btn btn-primary"
-        onclick="return handleDon(event)"
-      >Je fais un don via Hello Asso</a>
+      <a href="VOTRE_LIEN_DON" class="btn btn-primary" style="width:auto;" onclick="return handleDon(event)">Je fais un don via Hello Asso</a>
     </div>
 
-    <!-- Super donateur -->
-    <div class="participer-card">
-      <div class="participer-icon">⭐</div>
-      <div class="participer-title">Devenir super donateur</div>
+    <!-- Acheter de la vanille -->
+    <div class="participer-card" style="background: var(--vanilla);">
+      <img src="vanille.avif" alt="Gousses de vanille" class="participer-icon-img" />
+      <div class="participer-title">Vanille Bourbon de Madagascar</div>
       <div class="participer-desc">
-        Vous souhaitez aller plus loin ?<br/><br/>
-        Parrainer une étudiante.<br/>
-        Faire un don exceptionnel.<br/>
-        Soutenir durablement notre mission.<br/><br/>
-        Contactez-nous, nous serons heureux d'échanger.
+        La vraie — celle qui fait honte à l'extrait en bouteille.
       </div>
-      <a
-        href="https://wa.me/33633548443?text=Bonjour%2C%20je%20souhaite%20en%20savoir%20plus%20sur%20le%20parrainage%20des%20Paulins%20%F0%9F%8C%BF"
-        target="_blank"
-        rel="noopener"
-        class="btn btn-whatsapp"
-      >
-        <svg class="wa-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-        </svg>
-        Nous contacter
-      </a>
+      <div class="participer-price">10 € <span style="font-size:0.95rem;color:#888;font-family:'Lato',sans-serif;font-weight:400;">/ sachet de 5 gousses</span></div>
+      <a href="VOTRE_LIEN_HELLOASSO" class="btn btn-green" onclick="return handleVanille(event)">J'achète de la vanille</a>
     </div>
 
-    <!-- Vanille + Poivre (deux sous-blocs) -->
-    <div class="participer-card" style="gap:0;padding:0;overflow:hidden;">
-
-      <!-- Vanille -->
-      <div style="padding:2rem 2rem 1.5rem;border-bottom:1px solid #f0e8d8;display:flex;flex-direction:column;gap:0.8rem;flex:1;">
-        <div class="participer-icon">🌿</div>
-        <div class="participer-title">Vanille Bourbon de Madagascar</div>
-        <div class="participer-desc">
-          La référence mondiale. Une puissance aromatique intense avec des notes de caramel
-          et de chocolat délicatement boisée. Idéale pour la pâtisserie et les crèmes.
-        </div>
-        <div class="participer-price">10 € <span style="font-size:0.95rem;color:#888;font-family:'Lato',sans-serif;font-weight:400;">/ sachet de 5 gousses</span></div>
-        <a
-          href="VOTRE_LIEN_HELLOASSO"
-          class="btn btn-green"
-          onclick="return handleVanille(event)"
-        >J'achète de la vanille</a>
+    <!-- Acheter du poivre -->
+    <div class="participer-card" style="background: var(--vanilla);">
+      <img src="poivre.avif" alt="Poivre de Madagascar" class="participer-icon-img" />
+      <div class="participer-title">Poivre sauvage de Madagascar</div>
+      <div class="participer-desc">
+        Préparez-vous à jeter votre vieux moulin.
       </div>
-
-      <!-- Poivre -->
-      <div style="padding:1.5rem 2rem 2rem;display:flex;flex-direction:column;gap:0.8rem;flex:1;">
-        <div class="participer-icon">🌶️</div>
-        <div class="participer-title">Poivre sauvage de Madagascar</div>
-        <div class="participer-desc">
-          Une véritable explosion sensorielle grâce à son terroir volcanique. Notes d'agrumes
-          et de fleurs, long en bouche — extraordinaire sur un poisson ou des crustacés.
-        </div>
-        <div class="participer-price" style="color:#888;font-size:1.2rem;">À venir</div>
-        <span class="btn" style="background:#eee;color:#888;cursor:default;text-align:center;">Bientôt disponible</span>
-      </div>
-
+      <div class="participer-price" style="color:#888;font-size:1.2rem;">À venir</div>
+      <span class="btn" style="background:#eee;color:#888;cursor:default;text-align:center;">Bientôt disponible</span>
     </div>
 
   </div>
@@ -833,22 +803,10 @@
 </footer>
 
 <script>
-  // ── Carrousel ──
-  let carouselIndex = 0;
-  const total = 4;
-  let autoTimer = setInterval(() => carouselMove(1), 4500);
-
-  function carouselMove(dir) {
-    carouselGo((carouselIndex + dir + total) % total);
-  }
-
-  function carouselGo(index) {
-    carouselIndex = index;
-    document.getElementById('carouselTrack').style.transform = `translateX(-${index * 100}%)`;
-    document.querySelectorAll('.carousel-dot').forEach((d, i) => d.classList.toggle('active', i === index));
-    document.querySelectorAll('.carousel-pane').forEach((p, i) => p.classList.toggle('active', i === index));
-    clearInterval(autoTimer);
-    autoTimer = setInterval(() => carouselMove(1), 4500);
+  // ── Onglets actions ──
+  function showTab(index) {
+    document.querySelectorAll('.tab-btn').forEach((btn, i) => btn.classList.toggle('active', i === index));
+    document.querySelectorAll('.tab-panel').forEach((panel, i) => panel.classList.toggle('active', i === index));
   }
 
   function handleDon(e) {
