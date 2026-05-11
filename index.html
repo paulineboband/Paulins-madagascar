@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Vanille Madagascar — Pour les Polins</title>
+  <title>Vanille Madagascar — Soutenir les Paulins</title>
   <link
     href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Lato:wght@300;400;700&display=swap"
     rel="stylesheet"
@@ -27,7 +27,7 @@
       --dark:    #2d1f0e;
       --green:   #3a6b3a;
       --gold:    #c9922a;
-      --cta:     #c9922a;
+      --blue:    #2563eb;
     }
 
     /* ───── Typography helpers ───── */
@@ -59,9 +59,13 @@
       transition: transform 0.2s, box-shadow 0.2s;
     }
     .btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.15); }
-    .btn-primary {
-      background: var(--gold);
-      color: #fff;
+    .btn-primary { background: var(--gold); color: #fff; }
+    .btn-green { background: #25a244; color: #fff; }
+    .btn-blue { background: var(--blue); color: #fff; }
+    .btn-outline {
+      background: transparent;
+      color: var(--brown);
+      border: 2px solid var(--brown);
     }
     .btn-whatsapp {
       background: #25D366;
@@ -69,11 +73,6 @@
       display: inline-flex;
       align-items: center;
       gap: 0.55rem;
-    }
-    .btn-secondary {
-      background: transparent;
-      color: var(--brown);
-      border: 2px solid var(--brown);
     }
 
     /* ───── NAV ───── */
@@ -100,16 +99,15 @@
       transition: color 0.2s;
     }
     .nav-links a:hover { color: var(--gold); }
-    @media (max-width: 600px) {
-      .nav-links { display: none; }
-    }
+    @media (max-width: 700px) { .nav-links { display: none; } }
 
     /* ───── HERO ───── */
     #hero {
       min-height: 100vh;
       background:
-        linear-gradient(to bottom, rgba(45,31,14,0.55) 0%, rgba(45,31,14,0.3) 60%, rgba(255,253,248,1) 100%),
-        url('les-polins.jpeg') center/cover no-repeat;
+        linear-gradient(to right, rgba(107,63,26,0.95) 0%, rgba(107,63,26,0.75) 40%, rgba(107,63,26,0.2) 70%, rgba(107,63,26,0) 100%),
+        linear-gradient(to bottom, rgba(0,0,0,0) 80%, rgba(255,253,248,1) 100%),
+        url('smile.jpg') center/cover no-repeat;
       display: flex; align-items: center;
       padding: 6rem 2rem 4rem;
     }
@@ -132,23 +130,32 @@
       color: #fff;
       line-height: 1.15;
       margin-bottom: 1.2rem;
+      text-shadow: 0 2px 12px rgba(0,0,0,0.5);
     }
     .hero-title span { color: #f5e6c8; font-style: italic; }
     .hero-desc {
-      color: rgba(255,255,255,0.9);
+      color: rgba(255,255,255,0.95);
       font-size: 1.1rem;
       line-height: 1.7;
       margin-bottom: 2rem;
-      max-width: 560px;
+      max-width: 580px;
+      text-shadow: 0 1px 8px rgba(0,0,0,0.45);
     }
     .hero-cta { display: flex; gap: 1rem; flex-wrap: wrap; }
 
-    /* ───── MISSION ───── */
-    #mission {
+    /* ───── SECTION GÉNÉRIQUE ───── */
+    .section-centered {
+      padding: 5rem 2rem;
+      text-align: center;
+    }
+    .section-centered .section-sub { margin: 0.8rem auto 0; }
+
+    /* ───── QUI SOMMES-NOUS ───── */
+    #qui {
       background: var(--vanilla);
       padding: 5rem 2rem;
     }
-    .mission-inner {
+    .qui-inner {
       max-width: 900px;
       margin: 0 auto;
       display: grid;
@@ -156,18 +163,15 @@
       gap: 3rem;
       align-items: center;
     }
-    @media (max-width: 700px) {
-      .mission-inner { grid-template-columns: 1fr; }
-      .mission-context-grid { grid-template-columns: 1fr !important; }
-    }
-    .mission-img {
+    @media (max-width: 700px) { .qui-inner { grid-template-columns: 1fr; } }
+    .qui-img {
       border-radius: 16px;
       overflow: hidden;
       box-shadow: 0 8px 30px rgba(107,63,26,0.2);
     }
-    .mission-img img { width: 100%; height: auto; object-fit: contain; }
-    .mission-text .section-sub { margin-top: 0.8rem; }
-    .mission-text .mission-quote {
+    .qui-img img { width: 100%; height: auto; object-fit: cover; }
+    .qui-text p { margin-top: 1rem; }
+    .qui-text .quote {
       margin-top: 1.5rem;
       padding: 1.2rem 1.5rem;
       background: rgba(255,255,255,0.6);
@@ -179,246 +183,194 @@
       color: var(--brown);
       line-height: 1.6;
     }
+    .qui-text .btn { margin-top: 1.8rem; }
 
-    /* ───── PRODUITS ───── */
-    #produits {
+    /* ───── ORPHELINAT ───── */
+    #orphelinat {
       padding: 5rem 2rem;
       background: var(--cream);
     }
-    .produits-header {
-      text-align: center;
-      margin-bottom: 3rem;
-    }
-    .produits-header .section-sub { margin: 0.8rem auto 0; }
-    .produits-grid {
+    .orphelinat-inner {
       max-width: 900px;
       margin: 0 auto;
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 2rem;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
     }
-    .card {
-      background: #fff;
-      border-radius: 20px;
+    @media (max-width: 700px) { .orphelinat-inner { grid-template-columns: 1fr; } }
+    .orphelinat-img {
+      border-radius: 16px;
       overflow: hidden;
-      box-shadow: 0 4px 20px rgba(107,63,26,0.1);
-      transition: transform 0.3s, box-shadow 0.3s;
+      box-shadow: 0 8px 30px rgba(107,63,26,0.15);
+      order: 2;
     }
-    .card:hover { transform: translateY(-6px); box-shadow: 0 12px 35px rgba(107,63,26,0.18); }
-    .card-img { height: 220px; overflow: hidden; position: relative; }
-    .card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
-    .card:hover .card-img img { transform: scale(1.05); }
-    .card-badge {
-      position: absolute; top: 14px; left: 14px;
-      background: var(--gold);
-      color: #fff;
-      font-size: 0.75rem;
+    .orphelinat-img img { width: 100%; height: 300px; object-fit: cover; }
+    .orphelinat-text { order: 1; }
+    .orphelinat-text p { margin-top: 1rem; }
+    .stat-inline {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--vanilla);
+      border-radius: 10px;
+      padding: 0.5rem 1rem;
+      margin-top: 1.2rem;
       font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      padding: 0.25rem 0.75rem;
-      border-radius: 20px;
-    }
-    .card-badge.soon {
-      background: #999;
-    }
-    .card-body { padding: 1.5rem; }
-    .card-name {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.4rem;
       color: var(--brown);
-      margin-bottom: 0.4rem;
+      font-size: 1rem;
     }
-    .card-origin {
-      font-size: 0.85rem;
-      color: var(--green);
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.07em;
-      margin-bottom: 0.8rem;
-    }
-    .card-desc {
-      font-size: 0.95rem;
-      line-height: 1.65;
-      color: #5a3e28;
-      margin-bottom: 1.2rem;
-    }
-    .card-price {
-      display: flex;
-      align-items: baseline;
-      gap: 0.4rem;
-      margin-bottom: 1.2rem;
-    }
-    .price-main {
-      font-family: 'Playfair Display', serif;
-      font-size: 2rem;
-      font-weight: 700;
-      color: var(--gold);
-    }
-    .price-detail {
-      font-size: 0.9rem;
-      color: #888;
-    }
-    .card-disabled {
-      opacity: 0.5;
-      cursor: not-allowed;
-    }
-    .card-coming {
-      display: inline-block;
-      padding: 0.5rem 1.2rem;
-      border-radius: 50px;
-      background: #eee;
-      color: #888;
-      font-size: 0.9rem;
-      font-weight: 700;
+    @media (max-width: 700px) {
+      .orphelinat-img { order: 1; }
+      .orphelinat-text { order: 2; }
     }
 
-    /* ───── IMPACT ───── */
-    #impact {
+    /* ───── ACTIONS ───── */
+    #actions {
+      background: #f9f3e8;
+      padding: 5rem 2rem;
+    }
+    .actions-inner { max-width: 900px; margin: 0 auto; }
+    .actions-inner .section-sub { margin-top: 0.8rem; margin-bottom: 2.5rem; }
+    .actions-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+    .action-card {
+      background: #fff;
+      border-radius: 18px;
+      padding: 1.8rem;
+      box-shadow: 0 4px 20px rgba(107,63,26,0.09);
+    }
+    .action-icon { font-size: 2rem; margin-bottom: 0.8rem; }
+    .action-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      color: var(--brown);
+      margin-bottom: 0.5rem;
+    }
+    .action-list {
+      list-style: none;
+      font-size: 0.93rem;
+      line-height: 1.7;
+      color: #5a3e28;
+    }
+    .action-list li::before { content: "→ "; color: var(--gold); font-weight: 700; }
+
+    /* ───── 2026 ───── */
+    #objectif {
       background: var(--brown);
       color: #fff;
       padding: 5rem 2rem;
       text-align: center;
     }
-    #impact .section-title { color: var(--vanilla); }
-    #impact .section-sub { color: rgba(255,255,255,0.8); margin: 0.8rem auto 3rem; }
-    .impact-stats {
-      max-width: 800px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 2rem;
-    }
-    .stat-card {
-      background: rgba(255,255,255,0.1);
-      border-radius: 16px;
-      padding: 1.8rem 1rem;
-    }
-    .stat-number {
+    #objectif .section-title { color: var(--vanilla); }
+    #objectif .section-sub { color: rgba(255,255,255,0.85); margin: 0.8rem auto 2.5rem; }
+    .objectif-highlight {
+      display: inline-block;
+      background: var(--gold);
+      color: #fff;
       font-family: 'Playfair Display', serif;
-      font-size: 2.8rem;
-      color: var(--gold);
-      display: block;
+      font-size: 1.8rem;
+      font-weight: 700;
+      padding: 1rem 2.5rem;
+      border-radius: 16px;
+      margin: 1.5rem 0;
     }
-    .stat-label {
-      font-size: 0.95rem;
+    .objectif-detail {
+      font-size: 1rem;
       color: rgba(255,255,255,0.8);
-      margin-top: 0.4rem;
-      line-height: 1.4;
+      line-height: 1.7;
+      max-width: 600px;
+      margin: 0 auto 2rem;
+    }
+    .objectif-tags {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-bottom: 2rem;
+    }
+    .objectif-tag {
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 50px;
+      padding: 0.4rem 1.2rem;
+      font-size: 0.95rem;
+      color: #fff;
     }
 
-    /* ───── COMMANDER ───── */
-    #commander {
+    /* ───── PARTICIPER ───── */
+    #participer {
       padding: 5rem 2rem;
       background: var(--cream);
     }
-    .commander-inner {
-      max-width: 700px;
+    .participer-header { text-align: center; margin-bottom: 3rem; }
+    .participer-header .section-sub { margin: 0.8rem auto 0; }
+    .participer-grid {
+      max-width: 960px;
       margin: 0 auto;
-      text-align: center;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
     }
-    .commander-inner .section-sub { margin: 0.8rem auto 2.5rem; }
-    .order-box {
+    .participer-card {
       background: #fff;
       border-radius: 20px;
-      padding: 2.5rem;
-      box-shadow: 0 4px 30px rgba(107,63,26,0.1);
-      margin-bottom: 2rem;
-    }
-    .order-product {
+      padding: 2.5rem 2rem;
+      box-shadow: 0 4px 25px rgba(107,63,26,0.1);
       display: flex;
-      align-items: center;
-      gap: 1.5rem;
-      margin-bottom: 2rem;
-      text-align: left;
+      flex-direction: column;
+      gap: 1rem;
     }
-    .order-product-img {
-      width: 90px; height: 90px;
-      border-radius: 12px;
-      object-fit: cover;
-      flex-shrink: 0;
+    .participer-card.featured {
+      border: 2px solid var(--gold);
     }
-    .order-product-name {
+    .participer-icon { font-size: 2.2rem; }
+    .participer-title {
       font-family: 'Playfair Display', serif;
-      font-size: 1.2rem;
+      font-size: 1.4rem;
       color: var(--brown);
     }
-    .order-product-qty {
-      font-size: 0.9rem;
-      color: #888;
-      margin-top: 0.2rem;
+    .participer-desc {
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: #5a3e28;
+      flex: 1;
     }
-    .order-product-price {
+    .participer-price {
       font-family: 'Playfair Display', serif;
       font-size: 1.6rem;
       color: var(--gold);
       font-weight: 700;
-      margin-top: 0.3rem;
     }
-    .qty-selector {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      justify-content: center;
-      margin-bottom: 2rem;
-    }
-    .qty-selector label {
-      font-weight: 700;
-      font-size: 0.95rem;
-      color: var(--dark);
-    }
-    .qty-input {
-      width: 80px;
-      text-align: center;
-      padding: 0.6rem;
-      border: 2px solid #e8d9bb;
-      border-radius: 10px;
-      font-size: 1.1rem;
-      font-family: 'Playfair Display', serif;
-      color: var(--brown);
-      outline: none;
-    }
-    .qty-input:focus { border-color: var(--gold); }
-    .order-total {
-      font-size: 1rem;
-      color: #5a3e28;
-      background: var(--vanilla);
-      padding: 0.8rem 1.5rem;
-      border-radius: 10px;
-      margin-bottom: 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-weight: 700;
-    }
-    .order-total span:last-child {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.4rem;
-      color: var(--gold);
-    }
-    .order-notice {
+    .participer-note {
       font-size: 0.85rem;
       color: #888;
-      margin-top: 1rem;
       line-height: 1.5;
     }
-    .divider-or {
+    .participer-card .btn { text-align: center; width: 100%; }
+
+    /* ───── CITATION ───── */
+    #citation {
+      background: var(--vanilla);
+      padding: 5rem 2rem;
       text-align: center;
-      position: relative;
-      margin: 2.5rem 0;
-      color: #bbb;
+    }
+    .citation-text {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      color: var(--brown);
+      font-style: italic;
+      max-width: 700px;
+      margin: 0 auto 1.5rem;
+      line-height: 1.5;
+    }
+    .citation-source {
       font-size: 0.9rem;
+      color: #888;
     }
-    .divider-or::before, .divider-or::after {
-      content: '';
-      position: absolute;
-      top: 50%;
-      width: 40%;
-      height: 1px;
-      background: #e8d9bb;
-    }
-    .divider-or::before { left: 0; }
-    .divider-or::after { right: 0; }
 
     /* ───── FOOTER ───── */
     footer {
@@ -432,6 +384,99 @@
     footer strong { color: var(--vanilla); }
     footer a { color: #f5e6c8; }
 
+    /* ───── CARROUSEL ───── */
+    .carousel { max-width: 900px; margin: 0 auto; }
+
+    .carousel-track-wrapper {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 8px 35px rgba(107,63,26,0.18);
+    }
+    .carousel-track {
+      display: flex;
+      transition: transform 0.5s cubic-bezier(0.4,0,0.2,1);
+    }
+    .carousel-slide {
+      min-width: 100%;
+      height: 480px;
+    }
+    .carousel-slide img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    @media (max-width: 700px) { .carousel-slide { height: 260px; } }
+
+    .carousel-btn {
+      position: absolute; top: 50%; transform: translateY(-50%);
+      background: rgba(255,253,248,0.85);
+      border: none; border-radius: 50%;
+      width: 48px; height: 48px;
+      font-size: 1.2rem;
+      color: var(--brown);
+      cursor: pointer;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+      transition: background 0.2s, transform 0.2s;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .carousel-btn:hover { background: #fff; transform: translateY(-50%) scale(1.08); }
+    .carousel-prev { left: 1rem; }
+    .carousel-next { right: 1rem; }
+
+    .carousel-dots {
+      display: flex; justify-content: center; gap: 0.6rem;
+      margin: 1.2rem 0 0;
+    }
+    .carousel-dot {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      border: none;
+      background: #d4b896;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+      padding: 0;
+    }
+    .carousel-dot.active { background: var(--gold); transform: scale(1.3); }
+
+    .carousel-content {
+      position: relative;
+      margin-top: 2rem;
+      min-height: 160px;
+    }
+    .carousel-pane {
+      display: none;
+      text-align: center;
+      animation: fadeIn 0.4s ease;
+    }
+    .carousel-pane.active { display: block; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+    .carousel-pane-icon { font-size: 2.2rem; margin-bottom: 0.6rem; }
+    .carousel-pane-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      color: var(--brown);
+      margin-bottom: 1rem;
+    }
+    .carousel-pane-sub {
+      font-size: 0.95rem;
+      color: #7a5535;
+      font-style: italic;
+      line-height: 1.6;
+      max-width: 680px;
+      margin: 0 auto 1rem;
+    }
+    .carousel-pane-list {
+      list-style: none;
+      font-size: 1rem;
+      line-height: 1.8;
+      color: #5a3e28;
+      display: inline-block;
+      text-align: left;
+    }
+    .carousel-pane-list li::before { content: "→ "; color: var(--gold); font-weight: 700; }
+
     /* ───── WhatsApp SVG icon ───── */
     .wa-icon { width: 20px; height: 20px; fill: #fff; flex-shrink: 0; }
   </style>
@@ -442,353 +487,381 @@
 <nav>
   <div class="nav-logo">La gousse solidaire !</div>
   <ul class="nav-links">
-    <li><a href="#mission">Notre mission</a></li>
-    <li><a href="#produits">Produits</a></li>
-    <li><a href="#impact">Impact</a></li>
-    <li><a href="#commander">Commander</a></li>
+    <li><a href="#orphelinat">L'orphelinat</a></li>
+    <li><a href="#qui">Qui sommes-nous</a></li>
+    <li><a href="#actions">Nos actions</a></li>
+    <li><a href="#participer">Participer</a></li>
   </ul>
 </nav>
 
 <!-- ── HERO ── -->
 <section id="hero">
   <div class="hero-inner">
-    <span class="hero-badge">Madagascar · Commerce équitable</span>
+    <span class="hero-badge">Madagascar · Les Paulins de Bel-Air</span>
     <h1 class="hero-title">
-      La vanille qui<br/>
-      <span>donne le sourire</span>
+      Offrir un avenir,<br/>
+      <span>un sourire à la fois</span>
     </h1>
     <p class="hero-desc">
-      Chaque gousse de vanille que vous achetez finance l'éducation et le logement
-      des <strong style="color:#f5e6c8;">Polins</strong> — des enfants orphelins confiés aux
-      Sœurs Trinitaires de Madagascar.
+      Soutenez les orphelins des Sœurs Trinitaires de Madagascar.<br/>
+      Électricité, autonomie alimentaire, dignité… et désormais <strong style="color:#f5e6c8;">scolarité</strong>.<br/>
+      Chacune de vos contributions a un impact direct et leur offre une chance de construire leur avenir.
     </p>
     <div class="hero-cta">
-      <a href="#commander" class="btn btn-primary">Commander →</a>
+      <a href="#participer" class="btn btn-primary">Faire un don →</a>
+      <a href="#participer" class="btn btn-outline" style="color:#fff;border-color:rgba(255,255,255,0.7);">Acheter des spécialités malgaches</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── ORPHELINAT ── -->
+<section id="orphelinat">
+  <div class="orphelinat-inner">
+    <div class="orphelinat-text">
+      <h2 class="section-title">L'orphelinat des Paulins de Bel-Air</h2>
+      <p class="section-sub">
+        L'ordre des Sœurs Trinitaires de Valence a été fondé en <strong>1685</strong>.
+        Il est présent à Madagascar depuis près de <strong>100 ans</strong>.
+      </p>
+      <p class="section-sub">
+        L'orphelinat des Paulins, fondé en <strong>1905</strong> par le Père Joseph de Villele,
+        accueille chaque année à Tananarive environ <strong>115 enfants des rues</strong>,
+        scolarisés du jardin d'enfants au CM2 au sein de leur école, avec les autres enfants du quartier.
+      </p>
+      <p class="section-sub">
+        Depuis le démarrage de l'orphelinat, ce sont plus de <strong>13 000 enfants</strong> que les Sœurs
+        ont "remis debout" pour un nouveau départ dans la vie.
+      </p>
+      <div class="stat-inline">
+        🎯 Éduquer · Protéger · Relever · Rendre autonome
+      </div>
+      <p style="margin-top:1.2rem;font-size:0.95rem;color:#5a3e28;">
+        Retrouvez toutes les informations sur
+        <a href="https://www.trinitaires.org" target="_blank" rel="noopener" style="color:var(--gold);font-weight:700;">www.trinitaires.org</a>
+      </p>
+    </div>
+    <div class="orphelinat-img" style="display:flex;flex-direction:column;gap:1rem;">
+      <img
+        src="orphelinat.JPG"
+        alt="Madagascar — orphelinat des Paulins de Bel-Air"
+        style="border-radius:8px;width:100%;height:auto;object-fit:cover;transform:scale(1.05);transform-origin:center;"
+      />
+      <img
+        src="filles.JPG"
+        alt="Les filles de l'orphelinat des Paulins"
+        style="border-radius:8px;width:100%;height:auto;object-fit:cover;"
+      />
+    </div>
+  </div>
+</section>
+
+<!-- ── QUI SOMMES-NOUS ── -->
+<section id="qui">
+  <div class="qui-inner">
+    <div class="qui-img">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.6rem;">
+        <img src="Brigitte.JPG"  alt="Brigitte" style="border-radius:8px;width:100%;height:260px;object-fit:cover;" />
+        <img src="daniel.jpeg"   alt="Daniel"   style="border-radius:8px;width:100%;height:260px;object-fit:cover;" />
+        <img src="Brigitte2.JPG" alt="Brigitte sur le terrain" style="border-radius:8px;width:100%;height:260px;object-fit:cover;" />
+        <img src="Brigitte3.JPG" alt="Brigitte avec les enfants" style="border-radius:8px;width:100%;height:260px;object-fit:cover;" />
+      </div>
+    </div>
+    <div class="qui-text">
+      <h2 class="section-title">Brigitte et Daniel Chassagnon</h2>
+      <p class="section-sub">
+        Mariés depuis 40 ans, parents de 4 enfants, nous sommes engagés auprès des plus fragiles,
+        en France et ailleurs.
+      </p>
+      <p class="section-sub">
+        En 2024, grâce aux Sœurs Trinitaires, nous découvrons l'orphelinat des Paulins à Madagascar.
+        Une mission, puis une deuxième. Un lien fort est né et le sourire de tous ces enfants
+        de Bel-Air ne nous a plus quittés.
+      </p>
+      <p class="section-sub">
+        <strong>Aujourd'hui, nous voulons aller plus loin et aider davantage les Sœurs dans leur mission.</strong>
+      </p>
+      <a href="#participer" class="btn btn-primary">Je donne</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── NOS ACTIONS ── -->
+<section id="actions">
+  <div class="actions-inner">
+    <h2 class="section-title">Nos actions depuis deux ans</h2>
+    <p class="section-sub">
+      Grâce aux dons et à nos missions sur place, nous avons déjà pu agir concrètement.
+    </p>
+
+    <!-- Carrousel -->
+    <div class="carousel" style="margin-top:2.5rem;">
+
+      <!-- Texte -->
+      <div class="carousel-content" id="carouselContent">
+
+        <div class="carousel-pane active">
+          <h3 class="carousel-pane-title">Indépendance énergétique</h3>
+          <p class="carousel-pane-sub">Installation d'infrastructures solaires complètes pour s'affranchir totalement du délestage — les coupures de courant quotidiennes imposées qui perturbaient cours et vie communautaire.</p>
+          <ul class="carousel-pane-list">
+            <li>3 sites équipés (écoles et communautés) : 8 panneaux solaires, batterie lithium et onduleur par site</li>
+            <li>Chaque installation est dimensionnée pour une autonomie totale du réseau — zéro dépendance au réseau national</li>
+          </ul>
+        </div>
+
+        <div class="carousel-pane">
+          <h3 class="carousel-pane-title">Confort essentiel</h3>
+          <p class="carousel-pane-sub">L'amélioration des conditions de vie quotidiennes pour que chaque enfant grandisse dans un environnement digne et stimulant.</p>
+          <ul class="carousel-pane-list">
+            <li>115 matelas et 115 uniformes scolaires — un équipement complet pour chaque enfant de l'orphelinat des Paulins</li>
+            <li>Réfection du jardin d'enfants (peinture murale éducative, toboggan, balançoire), rénovation des bâtiments et fourniture de 20+ ballons et 30+ jeux</li>
+          </ul>
+        </div>
+
+        <div class="carousel-pane">
+          <h3 class="carousel-pane-title">Autonomie alimentaire</h3>
+          <p class="carousel-pane-sub">Le développement d'une production locale pour réduire la dépendance aux achats extérieurs et garantir une alimentation saine et régulière aux 115 enfants.</p>
+          <ul class="carousel-pane-list">
+            <li>50 arbres fruitiers plantés, cultures de riz et de manioc — les premières récoltes couvrent une partie des besoins alimentaires de l'orphelinat</li>
+            <li>Élevage de 250 poules pondeuses — une source de protéines durable produite sur place</li>
+          </ul>
+        </div>
+
+        <div class="carousel-pane">
+          <h3 class="carousel-pane-title">Connectivité numérique</h3>
+          <p class="carousel-pane-sub">La modernisation de la salle informatique de l'école de Tananarive pour préparer les enfants aux outils du monde d'aujourd'hui — et de demain.</p>
+          <ul class="carousel-pane-list">
+            <li>12 ordinateurs installés : le ratio est passé d'1 ordinateur pour 6 élèves à 1 pour 3 — un accès réel aux outils numériques</li>
+            <li>Modernisation complète du parc informatique de l'école des Sœurs — les enfants entrent dans l'ère du numérique et de l'IA</li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Images -->
+      <div class="carousel-track-wrapper">
+        <div class="carousel-track" id="carouselTrack">
+          <div class="carousel-slide">
+            <img src="solaires2.JPG" alt="Indépendance énergétique" />
+          </div>
+          <div class="carousel-slide">
+            <img src="enfant-souriant.jpeg" alt="Confort et dignité" />
+          </div>
+          <div class="carousel-slide">
+            <img src="les-polins.jpeg" alt="Autonomie alimentaire" />
+          </div>
+          <div class="carousel-slide">
+            <img src="ordi2.jpg" alt="Soutien informatique" />
+          </div>
+        </div>
+
+        <button class="carousel-btn carousel-prev" onclick="carouselMove(-1)" aria-label="Précédent">&#8592;</button>
+        <button class="carousel-btn carousel-next" onclick="carouselMove(1)" aria-label="Suivant">&#8594;</button>
+      </div>
+
+      <!-- Dots -->
+      <div class="carousel-dots" id="carouselDots">
+        <button class="carousel-dot active" onclick="carouselGo(0)"></button>
+        <button class="carousel-dot" onclick="carouselGo(1)"></button>
+        <button class="carousel-dot" onclick="carouselGo(2)"></button>
+        <button class="carousel-dot" onclick="carouselGo(3)"></button>
+      </div>
+
+    </div>
+
+    <p style="margin-top:2.5rem;font-size:0.95rem;color:#5a3e28;font-style:italic;text-align:center;">
+      Des actions simples et utiles pour améliorer durablement le quotidien des petits Paulins
+      et aider les Sœurs dans leur quête d'indépendance énergétique et alimentaire.
+    </p>
+  </div>
+</section>
+
+<!-- ── EN 2026, ON VA PLUS LOIN ── -->
+<section id="objectif">
+  <div style="max-width:1000px;margin:0 auto;display:grid;grid-template-columns:1fr 420px;gap:0;align-items:stretch;">
+
+    <!-- Texte -->
+    <div style="padding:5rem 3rem;text-align:left;">
+      <h2 class="section-title" style="color:var(--vanilla);">En 2026, on va plus loin</h2>
+      <p class="section-sub" style="color:rgba(255,255,255,0.85);">
+        Financer les études des jeunes filles.<br/>
+        Aujourd'hui, l'orphelinat s'arrête en 7e. C'est trop tôt.
+        Ensuite, l'avenir devient incertain et chaque enfant est envoyé dans d'autres établissements
+        d'accueil avec plus ou moins de réussite.
+      </p>
+      <div class="objectif-highlight" style="margin:1.5rem 0;">85 000 € sur 5 ans</div>
+      <p class="objectif-detail" style="margin:0 0 1.5rem;text-align:left;">
+        Dès 2026, nous ouvrons l'orphelinat des jeunes filles pour qu'elles puissent poursuivre leurs études
+        jusqu'en 3e au sein de l'école des Sœurs Trinitaires.<br/>
+        <strong>Objectif : accueillir 30 jeunes filles (7 à 8 par classe).</strong>
+      </p>
+      <div class="objectif-tags" style="justify-content:flex-start;">
+        <span class="objectif-tag">🏠 Hébergement</span>
+        <span class="objectif-tag">🍽️ Repas</span>
+        <span class="objectif-tag">📚 École</span>
+        <span class="objectif-tag">🎓 Encadrement</span>
+      </div>
+      <p style="color:rgba(255,255,255,0.75);font-size:0.95rem;margin-top:1.5rem;line-height:1.7;">
+        Notre engagement : financer les 5 premières années de cette extension, puis engager la même démarche
+        pour les garçons et, à plus long terme, étendre l'orphelinat jusqu'en terminale.
+      </p>
+    </div>
+
+    <!-- Photo -->
+    <div style="overflow:hidden;border-radius:8px;align-self:center;">
+      <img src="filles2.JPG" alt="Les jeunes filles des Paulins" style="width:100%;height:630px;object-fit:cover;transform:scale(1.08);transform-origin:center;" />
+    </div>
+
+  </div>
+</section>
+
+<!-- ── PARTICIPER ── -->
+<section id="participer">
+  <div class="participer-header">
+    <h2 class="section-title">Participer</h2>
+    <p class="section-sub">Choisissez comment vous souhaitez soutenir les Paulins.</p>
+  </div>
+
+  <div class="participer-grid">
+
+    <!-- Don -->
+    <div class="participer-card featured">
+      <div class="participer-icon">💛</div>
+      <div class="participer-title">Faire un don</div>
+      <div class="participer-desc">
+        Les Sœurs Trinitaires de Valence sont une congrégation religieuse basée en France —
+        leurs œuvres sont éligibles aux dons défiscalisables.<br/><br/>
+        <strong>100 € par mois</strong> permettent de contribuer à :
+        <ul style="margin-top:0.6rem;margin-left:1rem;line-height:1.8;">
+          <li>la scolarité</li>
+          <li>les repas</li>
+          <li>les vêtements</li>
+          <li>l'accompagnement éducatif</li>
+        </ul>
+      </div>
+      <div class="participer-note">
+        Don défiscalisé à <strong>66 %</strong> (réduction de l'impôt sur le revenu).<br/>
+        Vous recevrez automatiquement un reçu fiscal.<br/>
+        Bien indiquer que le don est destiné aux <strong>Paulins de Madagascar</strong>.<br/><br/>
+        <strong>100 € donnés = 34 € réellement dépensés.</strong>
+      </div>
       <a
-        href="https://wa.me/33633548443?text=Bonjour%2C%20je%20souhaite%20en%20savoir%20plus%20sur%20la%20vanille%20Madagascar%20et%20les%20Polins%20%F0%9F%8C%BF"
+        href="VOTRE_LIEN_DON"
+        class="btn btn-primary"
+        onclick="return handleDon(event)"
+      >Je fais un don via Hello Asso</a>
+    </div>
+
+    <!-- Super donateur -->
+    <div class="participer-card">
+      <div class="participer-icon">⭐</div>
+      <div class="participer-title">Devenir super donateur</div>
+      <div class="participer-desc">
+        Vous souhaitez aller plus loin ?<br/><br/>
+        Parrainer une étudiante.<br/>
+        Faire un don exceptionnel.<br/>
+        Soutenir durablement notre mission.<br/><br/>
+        Contactez-nous, nous serons heureux d'échanger.
+      </div>
+      <a
+        href="https://wa.me/33633548443?text=Bonjour%2C%20je%20souhaite%20en%20savoir%20plus%20sur%20le%20parrainage%20des%20Paulins%20%F0%9F%8C%BF"
         target="_blank"
         rel="noopener"
         class="btn btn-whatsapp"
-        id="whatsapp-hero"
       >
         <svg class="wa-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
           <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
         </svg>
-        En savoir plus / Faire un don
+        Nous contacter
       </a>
     </div>
-  </div>
-</section>
 
-<!-- ── MISSION ── -->
-<section id="mission">
-  <div class="mission-inner">
-    <div class="mission-img">
-      <img
-        src="cours-education-soeur.jpeg"
-        alt="Cours d'éducation avec les Sœurs Trinitaires à Madagascar"
-      />
-    </div>
-    <div class="mission-text">
-      <h2 class="section-title">Les Sœurs Trinitaires & les Polins</h2>
-      <p class="section-sub">
-        Fondé en <strong>1198 en France</strong> par saint Jean de Matha et saint Félix de Valois,
-        l'Ordre de la Très Sainte Trinité a toujours placé la <strong>libération des plus vulnérables</strong>
-        au cœur de sa mission. Présentes aujourd'hui sur plusieurs continents, les communautés trinitaires
-        portent des projets d'éducation, de soin et d'accueil au service des plus démunis.
-      </p>
-      <p class="section-sub" style="margin-top:1rem;">
-        À <strong>Madagascar</strong>, les Sœurs Trinitaires accueillent les <strong>Polins</strong> —
-        des enfants orphelins confiés par des familles dans l'impossibilité de subvenir à leurs besoins.
-        La communauté leur offre un toit, une scolarité et un accompagnement humain et spirituel,
-        dans une logique d'action sociale globale : éduquer, c'est transformer durablement une vie.
-      </p>
-      <blockquote class="mission-quote">
-        « Éduquer un enfant, c'est changer le destin d'une génération entière. »
-      </blockquote>
-    </div>
-  </div>
+    <!-- Vanille + Poivre (deux sous-blocs) -->
+    <div class="participer-card" style="gap:0;padding:0;overflow:hidden;">
 
-  <!-- Madagascar context -->
-  <div style="max-width:900px;margin:3rem auto 0;padding:0 1rem;">
-    <div class="mission-context-grid" style="background:#fff;border-radius:20px;padding:2rem 2.5rem;box-shadow:0 4px 20px rgba(107,63,26,0.08);display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:center;">
-      <div>
-        <img
-          src="mada.jpeg"
-          alt="Madagascar"
-          style="border-radius:14px;width:100%;height:220px;object-fit:cover;"
-        />
-      </div>
-      <div>
-        <h3 style="font-family:'Playfair Display',serif;font-size:1.4rem;color:#6b3f1a;margin-bottom:0.8rem;">Madagascar, une réalité sociale exigeante</h3>
-        <p style="font-size:0.95rem;line-height:1.7;color:#5a3e28;">
-          Madagascar est l'un des pays les plus pauvres du monde : plus de <strong>80 % de la population</strong>
-          vit sous le seuil de pauvreté. Face à cette réalité, les actions communautaires portées
-          par des congrégations comme les Sœurs Trinitaires représentent souvent le seul filet de sécurité
-          pour des centaines d'enfants. Leur approche est <strong>holistique</strong> : loger, scolariser,
-          soigner et redonner confiance, village après village.
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ── À QUOI SERVENT LES FONDS ── -->
-<section style="padding:5rem 2rem;background:#f9f3e8;">
-  <div style="max-width:900px;margin:0 auto;text-align:center;">
-    <h2 class="section-title">À quoi servent vos achats ?</h2>
-    <p class="section-sub" style="margin:0.8rem auto 3rem;">
-      Chaque euro reversé s'inscrit dans un projet concret, suivi par les Sœurs Trinitaires sur le terrain.
-    </p>
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:1.8rem;text-align:left;">
-
-      <!-- Projet 1 -->
-      <div style="background:#fff;border-radius:18px;padding:2rem;box-shadow:0 4px 20px rgba(107,63,26,0.09);">
-        <div style="font-size:2.2rem;margin-bottom:1rem;">🏠</div>
-        <h3 style="font-family:'Playfair Display',serif;font-size:1.15rem;color:#6b3f1a;margin-bottom:0.6rem;">Améliorer les structures d'accueil</h3>
-        <p style="font-size:0.92rem;line-height:1.7;color:#5a3e28;">
-          Rénovation des dispensaires, achat de lits, de matériel scolaire et médical pour que chaque Polin grandisse dans un environnement digne et sécurisé.
-        </p>
-      </div>
-
-      <!-- Projet 2 -->
-      <div style="background:#fff;border-radius:18px;padding:2rem;box-shadow:0 4px 20px rgba(107,63,26,0.09);">
-        <div style="font-size:2.2rem;margin-bottom:1rem;">☀️</div>
-        <h3 style="font-family:'Playfair Display',serif;font-size:1.15rem;color:#6b3f1a;margin-bottom:0.6rem;">L'autonomie électrique</h3>
-        <p style="font-size:0.92rem;line-height:1.7;color:#5a3e28;">
-          Madagascar est l'un des pays les plus touchés par le délestage. L'installation de <strong>panneaux solaires et batteries</strong> permettra aux enfants d'étudier, de se soigner et de vivre sans coupures de courant.
-        </p>
-      </div>
-
-      <!-- Projet 3 -->
-      <div style="background:#fff;border-radius:18px;padding:2rem;box-shadow:0 4px 20px rgba(107,63,26,0.09);position:relative;overflow:hidden;">
-        <div style="position:absolute;top:0;right:0;background:#c9922a;color:#fff;font-size:0.75rem;font-weight:700;padding:0.3rem 0.9rem;border-radius:0 18px 0 12px;letter-spacing:0.05em;">1 AN = 1 000 €</div>
-        <div style="font-size:2.2rem;margin-bottom:1rem;">📚</div>
-        <h3 style="font-family:'Playfair Display',serif;font-size:1.15rem;color:#6b3f1a;margin-bottom:0.6rem;">L'accès jusqu'au lycée pour les jeunes filles</h3>
-        <p style="font-size:0.92rem;line-height:1.7;color:#5a3e28;">
-          Permettre aux jeunes filles Polins de poursuivre leur scolarité jusqu'au lycée, souvent le niveau le plus difficile à atteindre faute de moyens. <strong>Une année de scolarité pour une jeune fille coûte 1 000 €</strong> — un investissement qui transforme toute une vie.
-        </p>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ── PRODUITS ── -->
-<section id="produits">
-  <div class="produits-header">
-    <h2 class="section-title">Nos produits</h2>
-    <p class="section-sub">
-      Cultivés à Madagascar, récoltés à la main, pour un goût authentique et un impact réel.
-    </p>
-  </div>
-
-  <div class="produits-grid">
-
-    <!-- Vanille -->
-    <div class="card">
-      <div class="card-img">
-        <img
-          src="vanille.avif"
-          alt="Gousses de vanille de Madagascar"
-        />
-        <span class="card-badge">Disponible</span>
-      </div>
-      <div class="card-body">
-        <div class="card-origin">Madagascar · Planifolia</div>
-        <h3 class="card-name">Gousses de Vanille</h3>
-        <p class="card-desc">
-          Vanille Bourbon de Madagascar, longues et charnues, gorgées de grains.
-          Un arôme intense, profond, légèrement boisé. Parfaites pour la pâtisserie,
-          les crèmes et les infusions.
-        </p>
-        <div class="card-price">
-          <span class="price-main">10 €</span>
-          <span class="price-detail">/ lot de 5 gousses</span>
+      <!-- Vanille -->
+      <div style="padding:2rem 2rem 1.5rem;border-bottom:1px solid #f0e8d8;display:flex;flex-direction:column;gap:0.8rem;flex:1;">
+        <div class="participer-icon">🌿</div>
+        <div class="participer-title">Vanille Bourbon de Madagascar</div>
+        <div class="participer-desc">
+          La référence mondiale. Une puissance aromatique intense avec des notes de caramel
+          et de chocolat délicatement boisée. Idéale pour la pâtisserie et les crèmes.
         </div>
-        <a href="#commander" class="btn btn-primary">Commander →</a>
+        <div class="participer-price">10 € <span style="font-size:0.95rem;color:#888;font-family:'Lato',sans-serif;font-weight:400;">/ sachet de 5 gousses</span></div>
+        <a
+          href="VOTRE_LIEN_HELLOASSO"
+          class="btn btn-green"
+          onclick="return handleVanille(event)"
+        >J'achète de la vanille</a>
       </div>
-    </div>
 
-    <!-- Poivre -->
-    <div class="card">
-      <div class="card-img">
-        <img
-          src="poivre.avif"
-          alt="Poivre de Madagascar"
-        />
-        <span class="card-badge soon">Bientôt disponible</span>
-      </div>
-      <div class="card-body">
-        <div class="card-origin">Madagascar · Noir & Rouge</div>
-        <h3 class="card-name">Poivre de Madagascar</h3>
-        <p class="card-desc">
-          Un poivre d'exception, cultivé dans les hauts plateaux malgaches.
-          Notes fruitées et piquantes, idéal pour sublimer toutes vos recettes.
-          <br/><em style="color:#aaa;">Disponible prochainement.</em>
-        </p>
-        <div class="card-price">
-          <span class="price-main" style="color:#bbb;">—</span>
-          <span class="price-detail">prix à venir</span>
+      <!-- Poivre -->
+      <div style="padding:1.5rem 2rem 2rem;display:flex;flex-direction:column;gap:0.8rem;flex:1;">
+        <div class="participer-icon">🌶️</div>
+        <div class="participer-title">Poivre sauvage de Madagascar</div>
+        <div class="participer-desc">
+          Une véritable explosion sensorielle grâce à son terroir volcanique. Notes d'agrumes
+          et de fleurs, long en bouche — extraordinaire sur un poisson ou des crustacés.
         </div>
-        <span class="card-coming">🌿 Bientôt disponible</span>
+        <div class="participer-price" style="color:#888;font-size:1.2rem;">À venir</div>
+        <span class="btn" style="background:#eee;color:#888;cursor:default;text-align:center;">Bientôt disponible</span>
       </div>
+
     </div>
 
   </div>
 </section>
 
-<!-- ── IMPACT ── -->
-<section id="impact">
-  <h2 class="section-title">Pourquoi acheter ici ?</h2>
-  <p class="section-sub">
-    Un achat utile, traçable et solidaire — du producteur malgache jusqu'à votre cuisine.
-  </p>
-  <div class="impact-stats">
-    <div class="stat-card">
-      <span class="stat-number">🌱</span>
-      <div class="stat-label"><strong style="color:#f5e6c8;">Produits bien sourcés</strong></div>
-    </div>
-<div class="stat-card">
-      <span class="stat-number">100%</span>
-      <div class="stat-label"><strong style="color:#f5e6c8;">Bénéfices reversés</strong></div>
-    </div>
-    <div class="stat-card">
-      <span class="stat-number">❤️</span>
-      <div class="stat-label"><strong style="color:#f5e6c8;">Impact direct</strong></div>
-    </div>
-  </div>
-</section>
-
-<!-- ── COMMANDER ── -->
-<section id="commander">
-  <div class="commander-inner">
-    <h2 class="section-title">Commander</h2>
-    <p class="section-sub">
-      Choisissez votre quantité et procédez au paiement sécurisé.
-      Chaque lot aide les Polins à étudier et vivre dignement.
-    </p>
-
-    <div class="order-box">
-      <div class="order-product">
-        <img
-          class="order-product-img"
-          src="vanille.avif"
-          alt="Gousses de vanille"
-        />
-        <div>
-          <div class="order-product-name">Gousses de Vanille — Madagascar</div>
-          <div class="order-product-qty">Lot de 5 gousses</div>
-          <div class="order-product-price">10 € / lot</div>
-        </div>
-      </div>
-
-      <div class="qty-selector">
-        <label for="qty">Nombre de lots :</label>
-        <input
-          type="number"
-          id="qty"
-          class="qty-input"
-          value="1"
-          min="1"
-          max="20"
-          oninput="updateTotal()"
-        />
-      </div>
-
-      <div class="order-total">
-        <span>Total</span>
-        <span id="total-display">10 €</span>
-      </div>
-
-      <!--
-        ══════════════════════════════════════════════
-        HELLOASSO — À configurer (gratuit pour les associations)
-        1. Créez un compte sur helloasso.com
-        2. Créez une "Boutique en ligne" ou une "Vente"
-           → Produit : "Lot de 5 gousses de vanille" à 10 €
-        3. Remplacez VOTRE_LIEN_HELLOASSO ci-dessous par
-           l'URL de votre boutique HelloAsso
-           (ex: https://www.helloasso.com/associations/xxx/boutiques/vanille-madagascar)
-        ══════════════════════════════════════════════
-      -->
-      <a
-        href="VOTRE_LIEN_HELLOASSO"
-        id="pay-btn"
-        class="btn btn-primary"
-        style="width:100%;text-align:center;font-size:1.1rem;padding:1rem;display:flex;align-items:center;justify-content:center;gap:0.5rem;"
-        target="_blank"
-        rel="noopener"
-        onclick="return handleOrder(event)"
-      >
-        <svg style="width:20px;height:20px;fill:#fff;flex-shrink:0" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
-        Commander via HelloAsso →
-      </a>
-
-      <p class="order-notice">
-        🔒 Paiement 100 % sécurisé · Livraison en France métropolitaine
-        <br />Expédié sous 3–5 jours ouvrés depuis Madagascar via notre partenaire local.
-      </p>
-    </div>
-
-    <div class="divider-or">ou</div>
-
-    <!-- WhatsApp CTA -->
-    <p style="font-size:1rem;color:#5a3e28;margin-bottom:1.5rem;line-height:1.6;">
-      Vous souhaitez en savoir plus sur les Polins, passer une commande
-      personnalisée ou faire un don ?
-    </p>
-    <a
-      href="https://wa.me/33633548443?text=Bonjour%2C%20je%20souhaite%20en%20savoir%20plus%20sur%20la%20vanille%20Madagascar%20et%20les%20Polins%20%F0%9F%8C%BF"
-      target="_blank"
-      rel="noopener"
-      class="btn btn-whatsapp"
-      id="whatsapp-main"
-      style="font-size:1.05rem;padding:1rem 2.2rem;"
-    >
-      <svg class="wa-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-      </svg>
-      Je suis intéressé(e) — Discutons sur WhatsApp
-    </a>
-
-    <p style="font-size:0.85rem;color:#aaa;margin-top:1rem;">
-      Réponse rapide · Commande personnalisée · Don libre
-    </p>
-  </div>
+<!-- ── CITATION ── -->
+<section id="citation">
+  <blockquote class="citation-text">
+    « Ce que tu donnes au plus petit, c'est à moi que tu le donnes. »
+  </blockquote>
+  <p class="citation-source">Évangile de Matthieu</p>
 </section>
 
 <!-- ── FOOTER ── -->
 <footer>
   <p>
-    <strong>Vanille Madagascar</strong> — Commerce équitable au service des Polins
+    <strong>Vanille Madagascar</strong> — Commerce équitable au service des Paulins
   </p>
   <p style="margin-top:0.5rem;">
     Pris en charge par les <strong>Sœurs Trinitaires de Madagascar</strong>
   </p>
   <p style="margin-top:1rem;font-size:0.8rem;">
-    © 2025 Vanille Madagascar · Fait avec ❤️ pour les enfants de Madagascar
+    © 2026 Vanille Madagascar · Fait avec ❤️ pour les enfants de Madagascar
   </p>
 </footer>
 
 <script>
-  // ── Calcul du total dynamique ──
-  function updateTotal() {
-    const qty = parseInt(document.getElementById('qty').value) || 1;
-    document.getElementById('total-display').textContent = (qty * 10) + ' €';
+  // ── Carrousel ──
+  let carouselIndex = 0;
+  const total = 4;
+  let autoTimer = setInterval(() => carouselMove(1), 4500);
 
-    // Met à jour le lien WhatsApp avec le montant et la quantité
-    const msg = encodeURIComponent(
-      `Bonjour, je souhaite commander ${qty} lot(s) de gousses de vanille Madagascar (${qty * 10} €) pour soutenir les Polins 🌿`
-    );
-    // Remplacez VOTRE_NUMERO par votre vrai numéro WhatsApp
-    const waBase = 'https://wa.me/33633548443?text=';
-    document.getElementById('whatsapp-hero').href = waBase + msg;
-    document.getElementById('whatsapp-main').href = waBase + msg;
+  function carouselMove(dir) {
+    carouselGo((carouselIndex + dir + total) % total);
   }
 
-  // ── Bouton HelloAsso : avertit si non encore configuré ──
-  function handleOrder(e) {
+  function carouselGo(index) {
+    carouselIndex = index;
+    document.getElementById('carouselTrack').style.transform = `translateX(-${index * 100}%)`;
+    document.querySelectorAll('.carousel-dot').forEach((d, i) => d.classList.toggle('active', i === index));
+    document.querySelectorAll('.carousel-pane').forEach((p, i) => p.classList.toggle('active', i === index));
+    clearInterval(autoTimer);
+    autoTimer = setInterval(() => carouselMove(1), 4500);
+  }
+
+  function handleDon(e) {
+    const href = e.currentTarget.getAttribute('href');
+    if (href === 'VOTRE_LIEN_DON') {
+      e.preventDefault();
+      alert('Le lien de don est bientôt disponible !\nContactez-nous sur WhatsApp pour faire un don dès maintenant 🌿');
+      return false;
+    }
+    return true;
+  }
+
+  function handleVanille(e) {
     const href = e.currentTarget.getAttribute('href');
     if (href === 'VOTRE_LIEN_HELLOASSO') {
       e.preventDefault();
@@ -797,9 +870,6 @@
     }
     return true;
   }
-
-  // Init
-  updateTotal();
 </script>
 
 </body>
