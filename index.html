@@ -267,31 +267,79 @@
     }
     #objectif .section-title { color: var(--vanilla); }
     #objectif .section-sub { color: rgba(255,255,255,0.85); margin: 0.8rem auto 2.5rem; }
-    .objectif-highlight {
-      display: inline-block;
-      background: var(--gold);
-      color: #fff;
-      font-family: 'Playfair Display', serif;
-      font-size: 1.8rem;
-      font-weight: 700;
-      padding: 1rem 2.5rem;
-      border-radius: 16px;
-      margin: 1.5rem 0;
+    .chantier-grid {
+      max-width: 1000px;
+      margin: 3rem auto 0;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
     }
-    .objectif-detail {
-      font-size: 1rem;
-      color: rgba(255,255,255,0.8);
-      line-height: 1.7;
-      max-width: 600px;
-      margin: 0 auto 2rem;
-    }
-    .objectif-tags {
+    @media (max-width: 800px) { .chantier-grid { grid-template-columns: 1fr; } }
+
+    .chantier-card {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 20px;
+      overflow: hidden;
       display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 0.8rem;
-      margin-bottom: 2rem;
+      flex-direction: column;
     }
+    .chantier-photo {
+      height: 180px;
+      background: rgba(255,255,255,0.06);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,0.35);
+      font-size: 0.85rem;
+      font-style: italic;
+    }
+    .chantier-photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .chantier-body {
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      gap: 0.8rem;
+    }
+    .chantier-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--vanilla);
+    }
+    .chantier-desc {
+      font-size: 0.88rem;
+      line-height: 1.65;
+      color: rgba(255,255,255,0.75);
+      flex: 1;
+    }
+    .chantier-gauge-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.55);
+      margin-top: 1rem;
+    }
+    .chantier-gauge-bar {
+      height: 8px;
+      background: rgba(255,255,255,0.12);
+      border-radius: 50px;
+      margin-top: 0.5rem;
+      overflow: hidden;
+    }
+    .chantier-gauge-fill {
+      height: 100%;
+      background: var(--gold);
+      border-radius: 50px;
+    }
+    .chantier-gauge-pct {
+      font-size: 0.82rem;
+      color: var(--gold);
+      font-weight: 700;
+      margin-top: 0.4rem;
+    }
+    /* ancien objectif-tag gardé pour compatibilité */
     .objectif-tag {
       background: rgba(255,255,255,0.12);
       border: 1px solid rgba(255,255,255,0.25);
@@ -694,40 +742,62 @@
   </div>
 </section>
 
-<!-- ── EN 2026, ON VA PLUS LOIN ── -->
+<!-- ── EN 2027, ON VA PLUS LOIN ── -->
 <section id="objectif">
-  <div style="max-width:1000px;margin:0 auto;display:grid;grid-template-columns:1fr 420px;gap:0;align-items:stretch;">
+  <h2 class="section-title" style="color:var(--vanilla);">En 2027, on va plus loin&nbsp;: 3 chantiers prioritaires</h2>
+  <p class="section-sub">Trois projets concrets, trois levées de fonds en cours. Chaque euro compte.</p>
 
-    <!-- Texte -->
-    <div style="padding:5rem 3rem;text-align:left;">
-      <h2 class="section-title" style="color:var(--vanilla);">En 2026, on va plus loin</h2>
-      <p class="section-sub" style="color:rgba(255,255,255,0.85);">
-        Financer les études des jeunes filles.<br/>
-        Aujourd'hui, l'orphelinat s'arrête en 7e. C'est trop tôt.
-        Ensuite, l'avenir devient incertain et chaque enfant est envoyé dans d'autres établissements
-        d'accueil avec plus ou moins de réussite.
-      </p>
-      <div class="objectif-highlight" style="margin:1.5rem 0;">85 000 € sur 5 ans</div>
-      <p class="objectif-detail" style="margin:0 0 1.5rem;text-align:left;">
-        Dès 2026, nous ouvrons l'orphelinat des jeunes filles pour qu'elles puissent poursuivre leurs études
-        jusqu'en 3e au sein de l'école des Sœurs Trinitaires.<br/>
-        <strong>Objectif : accueillir 30 jeunes filles (7 à 8 par classe).</strong>
-      </p>
-      <div class="objectif-tags" style="justify-content:flex-start;">
-        <span class="objectif-tag">🏠 Hébergement</span>
-        <span class="objectif-tag">🍽️ Repas</span>
-        <span class="objectif-tag">📚 École</span>
-        <span class="objectif-tag">🎓 Encadrement</span>
+  <div class="chantier-grid">
+
+    <!-- Projet 1 : École des filles -->
+    <div class="chantier-card">
+      <div class="chantier-photo">📷 Photo à venir</div>
+      <div class="chantier-body">
+        <div class="chantier-title">🎓 École des jeunes filles</div>
+        <p class="chantier-desc">Aujourd'hui, les filles quittent l'orphelinat après le CM2, faute de structures pour poursuivre leur scolarité. Nous finançons l'ouverture d'un internat pour 30 jeunes filles, leur permettant de continuer jusqu'en 3e au sein de l'école des Sœurs. Un toit, des repas, une scolarité — pour transformer durablement leur avenir.</p>
+        <div>
+          <div class="chantier-gauge-label">
+            <span>Fonds levés : <strong style="color:#fff;">0 €</strong></span>
+            <span>Objectif : <strong style="color:#fff;">85 000 €</strong></span>
+          </div>
+          <div class="chantier-gauge-bar"><div class="chantier-gauge-fill" style="width:0%"></div></div>
+          <div class="chantier-gauge-pct">0 % atteint</div>
+        </div>
       </div>
-      <p style="color:rgba(255,255,255,0.75);font-size:0.95rem;margin-top:1.5rem;line-height:1.7;">
-        Notre engagement : financer les 5 premières années de cette extension, puis engager la même démarche
-        pour les garçons et, à plus long terme, étendre l'orphelinat jusqu'en terminale.
-      </p>
     </div>
 
-    <!-- Photo -->
-    <div style="overflow:hidden;border-radius:8px;align-self:center;">
-      <img src="filles2.JPG" alt="Les jeunes filles des Paulins" style="width:100%;height:630px;object-fit:cover;transform:scale(1.08);transform-origin:center;" />
+    <!-- Projet 2 : Puits -->
+    <div class="chantier-card">
+      <div class="chantier-photo">📷 Photo à venir</div>
+      <div class="chantier-body">
+        <div class="chantier-title">💧 Puits à Mamaoumbay</div>
+        <p class="chantier-desc">La communauté de Mamaoumbay n'a pas accès à l'eau potable — une contrainte quotidienne pour les enfants comme pour les Sœurs. La construction d'un puits assurera un approvisionnement fiable et sécurisé pour toute la communauté. Un investissement fondamental pour la santé et la dignité de tous.</p>
+        <div>
+          <div class="chantier-gauge-label">
+            <span>Fonds levés : <strong style="color:#fff;">0 €</strong></span>
+            <span>Objectif : <strong style="color:#fff;">25 000 €</strong></span>
+          </div>
+          <div class="chantier-gauge-bar"><div class="chantier-gauge-fill" style="width:0%"></div></div>
+          <div class="chantier-gauge-pct">0 % atteint</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Projet 3 : Énergie -->
+    <div class="chantier-card">
+      <div class="chantier-photo">📷 Photo à venir</div>
+      <div class="chantier-body">
+        <div class="chantier-title">☀️ Autonomie énergétique</div>
+        <p class="chantier-desc">Les coupures de courant restent fréquentes dans les communautés non encore équipées. Nous poursuivons l'installation de panneaux solaires et batteries pour que chaque site puisse étudier, soigner et vivre sans dépendre d'un réseau défaillant. L'objectif : équiper les 6 communautés restantes.</p>
+        <div>
+          <div class="chantier-gauge-label">
+            <span>Fonds levés : <strong style="color:#fff;">0 €</strong></span>
+            <span>Objectif : <strong style="color:#fff;">30 000 €</strong></span>
+          </div>
+          <div class="chantier-gauge-bar"><div class="chantier-gauge-fill" style="width:0%"></div></div>
+          <div class="chantier-gauge-pct">0 % atteint</div>
+        </div>
+      </div>
     </div>
 
   </div>
