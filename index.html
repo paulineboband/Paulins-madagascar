@@ -302,13 +302,13 @@
 
     /* ───── 2027 ───── */
     #objectif {
-      background: var(--brown);
-      color: #fff;
+      background: var(--vanilla);
+      color: var(--dark);
       padding: 5rem 2rem;
       text-align: center;
     }
-    #objectif .section-title { color: var(--vanilla); }
-    #objectif .section-sub { color: rgba(255,255,255,0.85); margin: 0.8rem auto 2.5rem; }
+    #objectif .section-title { color: var(--brown); }
+    #objectif .section-sub { color: #5a3e28; margin: 0.8rem auto 2.5rem; }
     .chantier-grid {
       max-width: 1000px;
       margin: 3rem auto 0;
@@ -319,20 +319,21 @@
     @media (max-width: 800px) { .chantier-grid { grid-template-columns: 1fr; } }
 
     .chantier-card {
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.15);
+      background: #fff;
+      border: 1px solid #e8d9bb;
       border-radius: 20px;
       overflow: hidden;
       display: flex;
       flex-direction: column;
+      box-shadow: 0 4px 20px rgba(107,63,26,0.08);
     }
     .chantier-photo {
-      height: 180px;
-      background: rgba(255,255,255,0.06);
+      height: 240px;
+      background: #e8d9bb;
       display: flex;
       align-items: center;
       justify-content: center;
-      color: rgba(255,255,255,0.35);
+      color: #b09070;
       font-size: 0.85rem;
       font-style: italic;
     }
@@ -348,24 +349,24 @@
       font-family: 'Playfair Display', serif;
       font-size: 1.15rem;
       font-weight: 700;
-      color: var(--vanilla);
+      color: var(--brown);
     }
     .chantier-desc {
       font-size: 0.88rem;
       line-height: 1.65;
-      color: rgba(255,255,255,0.75);
+      color: #5a3e28;
       flex: 1;
     }
     .chantier-gauge-label {
       display: flex;
       justify-content: space-between;
       font-size: 0.8rem;
-      color: rgba(255,255,255,0.55);
+      color: #888;
       margin-top: 1.2rem;
     }
     .chantier-gauge-bar {
       height: 12px;
-      background: rgba(255,255,255,0.12);
+      background: #e8d9bb;
       border-radius: 50px;
       margin-top: 0.7rem;
       overflow: hidden;
@@ -530,6 +531,8 @@
       color: var(--brown);
       margin-bottom: 0.6rem;
     }
+    @media (min-width: 601px) { .tab-panel-title { display: none; } }
+    @media (min-width: 601px) { .actions-phrase-bas { display: none; } }
     .tab-panel-sub {
       font-size: 1rem;
       color: #5a3e28;
@@ -764,7 +767,7 @@
       <p class="tab-panel-examples">Installation de panneaux solaires et batteries sur 3 sites</p>
       <div class="tab-photos">
         <div class="tab-photo"><img src="solaires2.JPG" alt="Panneaux solaires" /></div>
-        <div class="tab-photo"><img src="action2NR.jpg" alt="Installation solaire" /></div>
+        <div class="tab-photo"><img src="action2NR.jpg" alt="Installation solaire" style="object-position: center 20%;" /></div>
       </div>
     </div>
 
@@ -775,7 +778,7 @@
       <p class="tab-panel-examples">Distribution de matelas et d'uniformes scolaires, réfection du jardin d'enfants (peintures murales, jeux), rénovation des bâtiments, création d'une galerie photos</p>
       <div class="tab-photos">
         <div class="tab-photo"><img src="action3NR.JPG" alt="Confort essentiel" /></div>
-        <div class="tab-photo"><img src="action4.jpeg" alt="Confort essentiel" /></div>
+        <div class="tab-photo"><img src="action4NR.jpeg" alt="Confort essentiel" /></div>
       </div>
     </div>
 
@@ -801,7 +804,7 @@
       </div>
     </div>
 
-    <p style="margin-top:2.5rem;font-size:0.95rem;color:#5a3e28;font-style:italic;text-align:center;">
+    <p class="actions-phrase-bas" style="margin-top:2.5rem;font-size:0.95rem;color:#5a3e28;font-style:italic;text-align:center;">
       Des actions simples et utiles pour améliorer durablement le quotidien des petits Paulins
       et aider les Sœurs dans leur quête d'indépendance énergétique et alimentaire.
     </p>
@@ -817,15 +820,15 @@
     <!-- Projet 1 : Scolarisation des Paulines -->
     <div class="chantier-card">
       <div class="chantier-photo">
-        <img src="chantier1.JPG" alt="Scolarisation des Paulines" />
+        <img src="chantier1NR.JPG" alt="Scolarisation des Paulines" />
       </div>
       <div class="chantier-body">
         <div class="chantier-title">🎓 Scolarisation des Paulines</div>
         <p class="chantier-desc">Les filles quittent l'orphelinat après le CM2, faute d'internat pour continuer. Nous finançons l'ouverture d'un internat pour 30 jeunes filles jusqu'en 3e — un toit, des repas, une scolarité.</p>
         <div>
           <div class="chantier-gauge-label">
-            <span>Fonds levés : <strong style="color:#fff;">0 €</strong></span>
-            <span>Objectif : <strong style="color:#fff;">85 000 €</strong></span>
+            <span>Fonds levés : <strong style="color:var(--brown);">0 €</strong></span>
+            <span>Objectif : <strong style="color:var(--brown);">85 000 €</strong></span>
           </div>
           <div class="chantier-gauge-bar"><div class="chantier-gauge-fill" style="width:0%"></div></div>
           <div class="chantier-gauge-pct">0 % atteint</div>
@@ -835,14 +838,14 @@
 
     <!-- Projet 2 : Puits -->
     <div class="chantier-card">
-      <div class="chantier-photo"><img src="chantier2bis.JPG" alt="Puits solaires" /></div>
+      <div class="chantier-photo"><img src="chantier2bNR.JPG" alt="Puits solaires" /></div>
       <div class="chantier-body">
         <div class="chantier-title">💧 Puits solaires en brousse</div>
         <p class="chantier-desc">Forage et construction d'un puits équipé d'une pompe solaire pour garantir un accès permanent à l'eau potable. Projet prioritaire pour 4 communautés en brousse. Coût : 4 500 € par puits.</p>
         <div>
           <div class="chantier-gauge-label">
-            <span>Fonds levés : <strong style="color:#fff;">0 €</strong></span>
-            <span>Objectif : <strong style="color:#fff;">18 000 €</strong></span>
+            <span>Fonds levés : <strong style="color:var(--brown);">0 €</strong></span>
+            <span>Objectif : <strong style="color:var(--brown);">18 000 €</strong></span>
           </div>
           <div class="chantier-gauge-bar"><div class="chantier-gauge-fill" style="width:0%"></div></div>
           <div class="chantier-gauge-pct">0 % atteint</div>
@@ -852,14 +855,14 @@
 
     <!-- Projet 3 : Énergie -->
     <div class="chantier-card">
-      <div class="chantier-photo"><img src="chantier3.jpeg" alt="Autonomie énergétique" /></div>
+      <div class="chantier-photo"><img src="chantier3NR.jpeg" alt="Autonomie énergétique" style="object-position: center 30%;" /></div>
       <div class="chantier-body">
         <div class="chantier-title">☀️ Autonomie énergétique</div>
         <p class="chantier-desc">Poursuite de l'installation des équipements de production d'énergie solaire dans les communautés non ou mal équipées. Coût : 6 000 € par site, 5 communautés prioritaires.</p>
         <div>
           <div class="chantier-gauge-label">
-            <span>Fonds levés : <strong style="color:#fff;">0 €</strong></span>
-            <span>Objectif : <strong style="color:#fff;">30 000 €</strong></span>
+            <span>Fonds levés : <strong style="color:var(--brown);">0 €</strong></span>
+            <span>Objectif : <strong style="color:var(--brown);">30 000 €</strong></span>
           </div>
           <div class="chantier-gauge-bar"><div class="chantier-gauge-fill" style="width:0%"></div></div>
           <div class="chantier-gauge-pct">0 % atteint</div>
@@ -869,14 +872,14 @@
 
     <!-- Projet 4 : Dispensaire -->
     <div class="chantier-card">
-      <div class="chantier-photo"><img src="chantier4.JPG" alt="Dispensaire d'Ankililoaka" /></div>
+      <div class="chantier-photo"><img src="chantier4NR.JPG" alt="Dispensaire d'Ankililoaka" /></div>
       <div class="chantier-body">
         <div class="chantier-title">🏥 Dispensaire d'Ankililoaka</div>
         <p class="chantier-desc">Réfection du pavillon des lépreux et tuberculeux du dispensaire d'Ankililoaka — travaux de rénovation et achat de matériel médical pour soigner les malades en brousse.</p>
         <div>
           <div class="chantier-gauge-label">
-            <span>Fonds levés : <strong style="color:#fff;">0 €</strong></span>
-            <span>Objectif : <strong style="color:#fff;">40 000 €</strong></span>
+            <span>Fonds levés : <strong style="color:var(--brown);">0 €</strong></span>
+            <span>Objectif : <strong style="color:var(--brown);">40 000 €</strong></span>
           </div>
           <div class="chantier-gauge-bar"><div class="chantier-gauge-fill" style="width:0%"></div></div>
           <div class="chantier-gauge-pct">0 % atteint</div>
@@ -949,6 +952,11 @@
   </blockquote>
   <p class="citation-source">Évangile de Matthieu</p>
 </section>
+
+<!-- ── PHOTO FIN ── -->
+<div style="width:100%;max-height:420px;overflow:hidden;line-height:0;">
+  <img src="fin.JPG" alt="Les Paulins de Madagascar" style="width:100%;max-height:420px;object-fit:cover;object-position:center;display:block;filter:brightness(0.88) contrast(1.05);" />
+</div>
 
 <!-- ── FOOTER ── -->
 <footer>
