@@ -121,7 +121,7 @@
       background:
         linear-gradient(to right, rgba(107,63,26,0.95) 0%, rgba(107,63,26,0.75) 40%, rgba(107,63,26,0.2) 70%, rgba(107,63,26,0) 100%),
         linear-gradient(to bottom, rgba(0,0,0,0) 80%, rgba(255,253,248,1) 100%),
-        url('smile.jpg') center/cover no-repeat;
+        url('img/smile.webp') center/cover no-repeat;
       display: flex; align-items: center;
       padding: 6rem 2rem 4rem;
     }
@@ -583,7 +583,7 @@
         background:
           linear-gradient(to right, rgba(107,63,26,0.95) 0%, rgba(107,63,26,0.75) 40%, rgba(107,63,26,0.2) 70%, rgba(107,63,26,0) 100%),
           linear-gradient(to bottom, rgba(0,0,0,0) 80%, rgba(255,253,248,0) 100%),
-          url('smile.jpg') center/cover no-repeat;
+          url('img/smile.webp') center/cover no-repeat;
       }
 
       /* Onglets : 2 colonnes de 2 boutons */
@@ -603,6 +603,7 @@
     /* ───── WhatsApp SVG icon ───── */
     .wa-icon { width: 20px; height: 20px; fill: #fff; flex-shrink: 0; }
   </style>
+  <link rel="preload" as="image" href="img/smile.webp" fetchpriority="high" />
 </head>
 <body>
 
@@ -664,12 +665,12 @@
     </div>
     <div class="orphelinat-img" style="display:flex;flex-direction:column;gap:1rem;">
       <img
-        src="orphelinat.JPG"
+        src="img/orphelinat.webp" width="1600" height="1060" loading="lazy" decoding="async"
         alt="Madagascar — orphelinat des Paulins de Bel-Air"
         style="border-radius:8px;width:100%;height:auto;object-fit:cover;transform:scale(1.05);transform-origin:center;"
       />
       <img
-        src="filles.JPG"
+        src="img/filles.webp" width="1600" height="1060" loading="lazy" decoding="async"
         alt="Les filles de l'orphelinat des Paulins"
         style="border-radius:8px;width:100%;height:auto;object-fit:cover;filter:brightness(0.85) contrast(1.05);"
       />
@@ -716,10 +717,10 @@
   <div class="qui-inner">
     <div class="qui-img">
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.6rem;">
-        <img src="Brigitte.JPG"  alt="Brigitte" style="border-radius:8px;width:100%;height:260px;object-fit:cover;" />
-        <img src="daniel.jpeg"   alt="Daniel"   style="border-radius:8px;width:100%;height:260px;object-fit:cover;filter:brightness(0.85) contrast(1.05);" />
-        <img src="Brigitte2.JPG" alt="Brigitte sur le terrain" style="border-radius:8px;width:100%;height:260px;object-fit:cover;" />
-        <img src="Brigitte3.JPG" alt="Brigitte avec les enfants" style="border-radius:8px;width:100%;height:260px;object-fit:cover;" />
+        <img src="img/Brigitte.webp" width="1600" height="1200" loading="lazy" decoding="async"  alt="Brigitte" style="border-radius:8px;width:100%;height:260px;object-fit:cover;" />
+        <img src="img/daniel.webp" width="1200" height="1600" loading="lazy" decoding="async"   alt="Daniel"   style="border-radius:8px;width:100%;height:260px;object-fit:cover;filter:brightness(0.85) contrast(1.05);" />
+        <img src="img/Brigitte2.webp" width="1200" height="1600" loading="lazy" decoding="async" alt="Brigitte sur le terrain" style="border-radius:8px;width:100%;height:260px;object-fit:cover;" />
+        <img src="img/Brigitte3.webp" width="1200" height="1600" loading="lazy" decoding="async" alt="Brigitte avec les enfants" style="border-radius:8px;width:100%;height:260px;object-fit:cover;" />
       </div>
     </div>
     <div class="qui-text">
@@ -766,8 +767,8 @@
       <p class="tab-panel-sub">Installation d'infrastructures solaires complètes pour s'affranchir totalement du délestage — les coupures de courant quotidiennes qui perturbaient cours et vie communautaire.</p>
       <p class="tab-panel-examples">Installation de panneaux solaires et batteries sur 3 sites</p>
       <div class="tab-photos">
-        <div class="tab-photo"><img src="solaires2.JPG" alt="Panneaux solaires" /></div>
-        <div class="tab-photo"><img src="action2NR.jpg" alt="Installation solaire" style="object-position: center 45%;" /></div>
+        <div class="tab-photo"><img src="img/solaires2.webp" width="1600" height="1200" loading="lazy" decoding="async" alt="Panneaux solaires" /></div>
+        <div class="tab-photo"><img src="img/action2NR.webp" width="1200" height="1600" loading="lazy" decoding="async" alt="Installation solaire" style="object-position: center 45%;" /></div>
       </div>
     </div>
 
@@ -777,8 +778,8 @@
       <p class="tab-panel-sub">L'amélioration des conditions de vie quotidiennes pour que chaque enfant grandisse dans un environnement digne et stimulant.</p>
       <p class="tab-panel-examples">Distribution de matelas et d'uniformes scolaires, réfection du jardin d'enfants (peintures murales, jeux), rénovation des bâtiments, création d'une galerie photos</p>
       <div class="tab-photos">
-        <div class="tab-photo"><img src="action3NR.JPG" alt="Confort essentiel" /></div>
-        <div class="tab-photo"><img src="action4NR.jpeg" alt="Confort essentiel" /></div>
+        <div class="tab-photo"><img src="img/action3NR.webp" width="1200" height="1600" loading="lazy" decoding="async" alt="Confort essentiel" /></div>
+        <div class="tab-photo"><img src="img/action4NR.webp" width="1200" height="1600" loading="lazy" decoding="async" alt="Confort essentiel" /></div>
       </div>
     </div>
 
@@ -788,8 +789,8 @@
       <p class="tab-panel-sub">Le développement d'une production locale pour réduire la dépendance aux achats extérieurs et garantir une alimentation saine et régulière aux enfants.</p>
       <p class="tab-panel-examples">Plantation d'arbres fruitiers et cultures vivrières (riz, manioc), réhabilitation de l'élevage de poules pondeuses</p>
       <div class="tab-photos">
-        <div class="tab-photo"><img src="action5NR.JPG" alt="Autonomie alimentaire" /></div>
-        <div class="tab-photo"><img src="action6NR.JPG" alt="Autonomie alimentaire" /></div>
+        <div class="tab-photo"><img src="img/action5NR.webp" width="1600" height="1200" loading="lazy" decoding="async" alt="Autonomie alimentaire" /></div>
+        <div class="tab-photo"><img src="img/action6NR.webp" width="1600" height="1200" loading="lazy" decoding="async" alt="Autonomie alimentaire" /></div>
       </div>
     </div>
 
@@ -799,8 +800,8 @@
       <p class="tab-panel-sub">La modernisation de la salle informatique de l'école de Tananarive pour préparer les enfants aux outils du monde d'aujourd'hui — et de demain.</p>
       <p class="tab-panel-examples">Renouvellement de l'équipement des salles informatiques dans les écoles, initiation aux outils LLM et IA</p>
       <div class="tab-photos">
-        <div class="tab-photo"><img src="action7NR.jpg" alt="Connectivité numérique" /></div>
-        <div class="tab-photo"><img src="action8NR.JPEG" alt="Connectivité numérique" /></div>
+        <div class="tab-photo"><img src="img/action7NR.webp" width="1600" height="1204" loading="lazy" decoding="async" alt="Connectivité numérique" /></div>
+        <div class="tab-photo"><img src="img/action8NR.webp" width="1600" height="1200" loading="lazy" decoding="async" alt="Connectivité numérique" /></div>
       </div>
     </div>
 
@@ -820,7 +821,7 @@
     <!-- Projet 1 : Scolarisation des Paulines -->
     <div class="chantier-card">
       <div class="chantier-photo">
-        <img src="chantier1NR.JPG" alt="Scolarisation des Paulines" />
+        <img src="img/chantier1NR.webp" width="1117" height="1600" loading="lazy" decoding="async" alt="Scolarisation des Paulines" />
       </div>
       <div class="chantier-body">
         <div class="chantier-title">🎓 Scolarisation des Paulines</div>
@@ -838,7 +839,7 @@
 
     <!-- Projet 2 : Puits -->
     <div class="chantier-card">
-      <div class="chantier-photo"><img src="chantier2bNR.JPG" alt="Puits solaires" /></div>
+      <div class="chantier-photo"><img src="img/chantier2bNR.webp" width="1600" height="1200" loading="lazy" decoding="async" alt="Puits solaires" /></div>
       <div class="chantier-body">
         <div class="chantier-title">💧 Puits solaires en brousse</div>
         <p class="chantier-desc">Forage et construction d'un puits équipé d'une pompe solaire pour garantir un accès permanent à l'eau potable. Projet prioritaire pour 4 communautés en brousse. Coût : 4 500 € par puits.</p>
@@ -855,7 +856,7 @@
 
     <!-- Projet 3 : Énergie -->
     <div class="chantier-card">
-      <div class="chantier-photo"><img src="chantier3NR.jpeg" alt="Autonomie énergétique" style="object-position: center 30%;" /></div>
+      <div class="chantier-photo"><img src="img/chantier3NR.webp" width="1600" height="1200" loading="lazy" decoding="async" alt="Autonomie énergétique" style="object-position: center 30%;" /></div>
       <div class="chantier-body">
         <div class="chantier-title">☀️ Autonomie énergétique</div>
         <p class="chantier-desc">Poursuite de l'installation des équipements de production d'énergie solaire dans les communautés non ou mal équipées. Coût : 6 000 € par site, 5 communautés prioritaires.</p>
@@ -872,7 +873,7 @@
 
     <!-- Projet 4 : Dispensaire -->
     <div class="chantier-card">
-      <div class="chantier-photo"><img src="chantier4NR.JPG" alt="Dispensaire d'Ankililoaka" /></div>
+      <div class="chantier-photo"><img src="img/chantier4NR.webp" width="1600" height="1200" loading="lazy" decoding="async" alt="Dispensaire d'Ankililoaka" /></div>
       <div class="chantier-body">
         <div class="chantier-title">🏥 Dispensaire d'Ankililoaka</div>
         <p class="chantier-desc">Réfection du pavillon des lépreux et tuberculeux du dispensaire d'Ankililoaka — travaux de rénovation et achat de matériel médical pour soigner les malades en brousse.</p>
@@ -901,7 +902,7 @@
 
     <!-- Acheter de la vanille -->
     <div class="participer-card" style="background: var(--vanilla);">
-      <img src="vanille.avif" alt="Gousses de vanille" class="participer-icon-img" />
+      <img src="img/vanille.webp" width="180" height="101" loading="lazy" decoding="async" alt="Gousses de vanille" class="participer-icon-img" />
       <div class="participer-title">Vanille Bourbon de Madagascar</div>
       <div class="participer-desc">
         La vraie — celle qui fait honte à l'extrait en bouteille.
@@ -912,7 +913,7 @@
 
     <!-- Acheter du poivre -->
     <div class="participer-card" style="background: var(--vanilla);">
-      <img src="poivre.avif" alt="Poivre de Madagascar" class="participer-icon-img" />
+      <img src="img/poivre.webp" width="180" height="113" loading="lazy" decoding="async" alt="Poivre de Madagascar" class="participer-icon-img" />
       <div class="participer-title">Poivre sauvage de Madagascar</div>
       <div class="participer-desc">
         Préparez-vous à jeter votre vieux moulin.
@@ -954,8 +955,8 @@
 </section>
 
 <!-- ── PHOTO FIN ── -->
-<div style="width:100%;max-height:600px;overflow:hidden;line-height:0;">
-  <img src="finNR.JPG" alt="Les Paulins de Madagascar" style="width:100%;max-height:600px;object-fit:cover;object-position:center;display:block;filter:brightness(0.88) contrast(1.05);" />
+<div style="width:100%;height:auto;max-height:600px;overflow:hidden;line-height:0;">
+  <img src="img/finNR.webp" width="1600" height="1200" loading="lazy" decoding="async" alt="Les Paulins de Madagascar" style="width:100%;height:auto;max-height:600px;object-fit:cover;object-position:center;display:block;filter:brightness(0.88) contrast(1.05);" />
 </div>
 
 <!-- ── FOOTER ── -->
